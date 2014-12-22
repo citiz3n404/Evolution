@@ -32,11 +32,13 @@ public class WolfMove implements BehaviorMove {
         int finaly;
 
         boolean flag = false;
+        
+        System.out.println("Je suis un loup ! *************************************");
 
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {
                 list1.add(new Square(i, j));
-                System.out.println("x=" + i + " j=" + j);
+                //System.out.println("x=" + i + " j=" + j);
             }
         }
 
@@ -48,12 +50,11 @@ public class WolfMove implements BehaviorMove {
 
                 }
             }
-            
         }
         // On note les cases, si il y a un mouton on sélectionne cette case, sinon on va dans les cases où il n'y a pas d'animaux
         //Verif des animaux et selection du mouton
         for (int i = 0; i < list2.size(); i++) {
-            if (m.world[list2.get(i).getX()][list2.get(i).getY()].getHasAnimal()) {
+            if (m.world[list2.get(i).getX()][list2.get(i).getY()].getHasAnimal() && m.world[list2.get(i).getX()][list2.get(i).getY()].getNumberOfAnimals()<2) {
 
                 for (int j = 0; j < m.getListAnimals().size(); j++) {
                     if (m.getAnimal(j).getPosX() == list2.get(i).getX() && m.getAnimal(j).getPosY() == list2.get(i).getY()) {
@@ -64,9 +65,12 @@ public class WolfMove implements BehaviorMove {
                             System.out.println("Coord : "+finalx+" "+finaly);
 
                             m.world[x][y].setHasAnimal(false);
+                            m.world[x][y].setNumberOfAnimals(m.world[x][y].getNumberOfAnimals()-1);
+                            
                             animal.setPosX(finalx);
                             animal.setPosY(finaly);
                             m.world[finalx][finaly].setHasAnimal(true);
+                            m.world[finalx][finaly].setNumberOfAnimals(m.world[finalx][finaly].getNumberOfAnimals()+1);
                             flag = true;
                             break;
                         }
@@ -82,7 +86,7 @@ public class WolfMove implements BehaviorMove {
                 break;
             }
         }
-
+        
         //L3 correspond au cases sans loups. Et sans mouton sinon la fonction
         // serait terminée
         if (flag == false) {
@@ -93,7 +97,7 @@ public class WolfMove implements BehaviorMove {
             animal.setPosX(list3.get(rand).getX());
             animal.setPosY(list3.get(rand).getY());
             m.world[animal.getPosX()][animal.getPosY()].setHasAnimal(true);
-            System.out.println("On a choisi la case :"+animal.getPosX()+" "+animal.getPosY());
+            System.out.println("Loup va sur la case :"+animal.getPosX()+" "+animal.getPosY());
 
         } else {
             //Sinon on ne fait rien et on reste sur place

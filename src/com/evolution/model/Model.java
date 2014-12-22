@@ -95,14 +95,15 @@ public class Model implements Observable, CONSTANTS {
             rand = randInt(0, square.size() - 1);
             sq = square.get(rand);
 
-            if (i < nbWolfs) {
-                animal.add(new Wolf(sq.getX(), sq.getY(), this));
-                world[sq.getX()][sq.getY()].setHasAnimal(true);
-
-            } else {
+            if (i < nbSheeps) {
                 animal.add(new Sheep(sq.getX(), sq.getY(), this));
                 world[sq.getX()][sq.getY()].setHasAnimal(true);
+                world[sq.getX()][sq.getY()].setNumberOfAnimals(world[sq.getX()][sq.getY()].getNumberOfAnimals()+1);
 
+            } else {
+                animal.add(new Wolf(sq.getX(), sq.getY(), this));
+                world[sq.getX()][sq.getY()].setHasAnimal(true);
+                world[sq.getX()][sq.getY()].setNumberOfAnimals(world[sq.getX()][sq.getY()].getNumberOfAnimals()+1);
             }
             square.remove(rand);
 

@@ -31,11 +31,11 @@ public class RandomMove implements BehaviorMove {
 
         //ON liste les 9 list1
         System.out.println("\n --------");
-        System.out.println("\n Les positions possibles");
+        //System.out.println("\n Les positions possibles");
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {
                 list1.add(new Square(i, j));
-                System.out.println("x="+i+" j="+j);
+                //System.out.println("x="+i+" j="+j);
             }
         }
 
@@ -51,12 +51,14 @@ public class RandomMove implements BehaviorMove {
         }
         
         
-        System.out.println("\n -------- ELAGAGE");
+        /*System.out.println("\n -------- ELAGAGE");
         for(int l =0; l < list2.size(); l++){
-            System.out.println("x="+list2.get(l).getX()+" j="+list2.get(l).getY());
+        System.out.println("x="+list2.get(l).getX()+" j="+list2.get(l).getY());
         }
-        
         System.out.println("On a supprimé les cases qui débordent");
+        */
+        
+       
         
         //On supprime les list1 avec animaux Même celle où il se trouve
         for (int w = 0; w < list2.size(); w++) {
@@ -68,20 +70,23 @@ public class RandomMove implements BehaviorMove {
             }
         }
         
-         System.out.println("\n -------- ELAGAGE 2");
+        /*  System.out.println("\n -------- ELAGAGE 2");
         for(int l =0; l < list3.size(); l++){
-            System.out.println("x="+list3.get(l).getX()+" j="+list3.get(l).getY());
+        System.out.println("x="+list3.get(l).getX()+" j="+list3.get(l).getY());
         }
-        System.out.println("On a supprimé les cases qui contiennent des animaux");
+        System.out.println("On a supprimé les cases qui contiennent des animaux");*/
         // On choisi un case libre au hasard
+        
         if (!list3.isEmpty()) {
             int rand = Model.randInt(0, list3.size() - 1);
 
             m.world[x][y].setHasAnimal(false);
+            m.world[x][y].setNumberOfAnimals(m.world[x][y].getNumberOfAnimals()-1);
             animal.setPosX(list3.get(rand).getX());
             animal.setPosY(list3.get(rand).getY());
             m.world[animal.getPosX()][animal.getPosY()].setHasAnimal(true);
-            System.out.println("On a choisi la case :"+animal.getPosX()+" "+animal.getPosY());
+            m.world[animal.getPosX()][animal.getPosY()].setNumberOfAnimals(m.world[animal.getPosX()][animal.getPosY()].getNumberOfAnimals()+1);
+            System.out.println("Mouton va en :"+animal.getPosX()+" "+animal.getPosY());
 
         } else {
             //Sinon on ne fait rien et on reste sur place

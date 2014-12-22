@@ -9,6 +9,7 @@ public class Square {
     private     int         X;
     private     int         Y;
     private     boolean     hasAnimal;
+    private     int         numberOfAnimals;
     private     boolean     grass;
     private     boolean     minerals;
     private     int         danger;
@@ -16,6 +17,7 @@ public class Square {
     public Square(int x, int y){
         this.X = x;
         this.Y = y;
+        this.numberOfAnimals = 0;
         this.grass = false;
         this.minerals = false;
     }
@@ -28,6 +30,9 @@ public class Square {
         return this.Y;
     }
     
+    public int getNumberOfAnimals(){
+        return numberOfAnimals;
+    }
     public boolean getGrass(){
         return this.grass;
     }
@@ -46,6 +51,9 @@ public class Square {
     
     public void setY(int y){
         this.Y = y;
+    }
+    public void setNumberOfAnimals(int n){
+        numberOfAnimals = n;
     }
     
     public void setHasAnimal(boolean bool){
