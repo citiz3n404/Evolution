@@ -161,9 +161,6 @@ public class JPanelCounters extends JPanel implements CONSTANTS, Observer{
         c.gridx = 0;
         c.gridy = 9;
         this.add(nbMinerals, c);
-    
-
-        //System.out.println("UPDATE EXECUTE : Valeur du model : "+ controller.m.getNbWolfs());
 
     }
 

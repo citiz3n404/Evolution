@@ -32,8 +32,7 @@ public class WolfMove implements BehaviorMove {
         int finaly;
 
         boolean flag = false;
-        
-        System.out.println("Je suis un loup ! *************************************");
+    
 
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {
