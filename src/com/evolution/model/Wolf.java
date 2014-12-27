@@ -3,6 +3,7 @@ package com.evolution.model;
 
 import com.evolution.strategy.RandomM;
 import com.evolution.strategy.RandomMove;
+import com.evolution.strategy.WolfEat;
 import com.evolution.strategy.WolfMove;
 
 /**
@@ -21,6 +22,7 @@ public class Wolf extends Animal{
         hunger      = WOLF_HUNGER;
         m = mParam;
         behaviorMove = new WolfMove(m);
+        behaviorEat = new WolfEat(m);
         this.setPosX(x);
         this.setPosY(y);
         this.setSex();
@@ -34,9 +36,20 @@ public class Wolf extends Animal{
     //**************************************************************************
     // METHODS
     //**************************************************************************
-    @Override
-    public void eat() {
+
+    
+    public void resetHunger(){
         hunger = WOLF_HUNGER;
+    }
+
+    @Override
+    public void makeAMove() {
+        behaviorMove.move(this);
+    }
+
+    @Override
+    public void haveAMeal() {
+        behaviorEat.eat(this);
     }
 
 }

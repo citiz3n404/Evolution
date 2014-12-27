@@ -99,10 +99,8 @@ public class Controller implements CONSTANTS {
         m.initAnimals(); // Crée les animaux
         m.initElements(); // herbe et mineraux
         m.notifyObserver(); // Actualise
-        
-        for(int i =0; i < 100; i++){
-            m.moveAnimals();
-        }
+       
+        m.playSimulation();
                 
     }
 

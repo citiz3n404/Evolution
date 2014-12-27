@@ -1,6 +1,7 @@
 
 package com.evolution.model;
 
+import com.evolution.strategy.BehaviorEat;
 import com.evolution.strategy.BehaviorMove;
 
 /**
@@ -15,8 +16,11 @@ public abstract class Animal implements CONSTANTS{
     protected     int         posY;
     protected     boolean     sex;
     protected     BehaviorMove behaviorMove;
+    protected     BehaviorEat  behaviorEat;
     
-    public abstract void eat();
+    public abstract void makeAMove();
+    public abstract void haveAMeal();
+    public abstract void resetHunger();
 
     public int getPosX(){
         return this.posX;
@@ -47,8 +51,9 @@ public abstract class Animal implements CONSTANTS{
     public void setBehavior(BehaviorMove bm){
         behaviorMove = bm;
     }
+
     
-    public void doATurn() {
+    public void birthday() {
         hunger --;
 
         if(hunger ==0){

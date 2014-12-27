@@ -3,6 +3,7 @@ package com.evolution.model;
 
 import com.evolution.strategy.RandomM;
 import com.evolution.strategy.RandomMove;
+import com.evolution.strategy.SheepEat;
 
 /**
  * Class Sheep
@@ -17,15 +18,27 @@ public class Sheep extends Animal{
         alive       = true;
         m           = mParam;
         behaviorMove        = new RandomMove(m);
+        behaviorEat   = new SheepEat(m);
         this.setPosX(x);
         this.setPosY(y);
         this.setSex();
     }
 
+
+
     @Override
-    public void eat() {
+    public void makeAMove() {
+        behaviorMove.move(this);
+    }
+
+    @Override
+    public void haveAMeal() {
+        behaviorEat.eat(this);
+    }
+
+    @Override
+    public void resetHunger() {
         hunger = SHEEP_HUNGER;
     }
-    
-    
+
 }

@@ -126,10 +126,54 @@ public class Model implements Observable, CONSTANTS {
     public void moveAnimals() {
         
         for (int i = 0; i < animal.size(); i++) {
-            animal.get(i).behaviorMove.move(animal.get(i));
+            animal.get(i).birthday();
+            if(animal.get(i).alive){
+                animal.get(i).makeAMove();
+                animal.get(i).haveAMeal();
+            }
+            
         }
 
         notifyObserver();
+    }
+    
+    public void playSimulation(){
+        do{
+            setNbLaps(getNbLaps() +1);
+            moveAnimals();
+            removeDeads();
+            growGrass();
+            notifyObserver();
+        }while(!animal.isEmpty());
+    }
+    
+    public void growGrass(){
+        for(int x = 0; x< sizeX; x++){
+            for( int y =0; y<sizeY; y++){
+                if(world[x][y].getMinerals()){
+                    world[x][y].addGrass();
+                }
+            }
+        }
+    }
+    
+    public void removeDeads(){
+        for(int i=0; i<animal.size(); i++){
+            if(!animal.get(i).alive){
+                world[animal.get(i).getPosX()][animal.get(i).getPosY()].addMinerals();
+                if(animal.get(i) instanceof Wolf){
+                    System.out.println("Loup mort de vieillesse");
+                    nbWolfs --;
+                    notifyObserver();
+                }
+                else if(animal.get(i) instanceof Sheep){
+                    System.out.println("Mouton mort de vieillesse");
+                    nbSheeps --;
+                    notifyObserver();
+                }
+                animal.remove(animal.get(i));
+            }
+        }
     }
 
     public void sleep() {
@@ -228,6 +272,10 @@ public class Model implements Observable, CONSTANTS {
     public int getSizeAnimal() {
         return animal.size();
     }
+    
+    public int getNbLaps(){
+        return nbLaps;
+    }
 
     public void setSizeX(int x) {
         this.sizeX = x;
@@ -258,6 +306,11 @@ public class Model implements Observable, CONSTANTS {
         this.nbMinerals = m;
         notifyObserver();
     }
+    
+    public void setNbLaps(int l){
+        this.nbLaps = l;
+        notifyObserver();
+    }
 
     public void setNbSquare(int s) {
         this.nbSquare = s;
@@ -269,6 +322,10 @@ public class Model implements Observable, CONSTANTS {
 
     public void setNbAnimals(int a) {
         this.nbAnimals = a;
+    }
+    
+    public void removeAnimal(Animal a){
+        animal.remove(a);
     }
 
     @Override
