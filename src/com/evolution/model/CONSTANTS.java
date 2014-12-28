@@ -36,12 +36,12 @@ public interface CONSTANTS {
     // PARAMETRES DE DEPART OPTIMAUX
     //**************************************************************************
     
-    public static final     int         NB_LINE_OPTIMAL             = 11;
-    public static final     int         NB_COLUMN_OPTIMAL           = 21;
-    public static final     int         NB_WOLFS_OPTIMAL            = 1;
-    public static final     int         NB_SHEEPS_OPTIMAL           = 100;
-    public static final     int         NB_GRASS_OPTIMAL            = 100;
-    public static final     int         NB_MINERALS_OPTIMAL         = 30;
+    public static final     int         NB_LINE_OPTIMAL             = 10;
+    public static final     int         NB_COLUMN_OPTIMAL           = 20;
+    public static final     int         NB_WOLFS_OPTIMAL            = 5;
+    public static final     int         NB_SHEEPS_OPTIMAL           = 30;
+    public static final     int         NB_GRASS_OPTIMAL            = 200;
+    public static final     int         NB_MINERALS_OPTIMAL         = 0;
 
 
     

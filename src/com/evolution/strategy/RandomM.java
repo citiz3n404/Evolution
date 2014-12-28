@@ -28,8 +28,8 @@ public class RandomM implements BehaviorMove {
         int tempSize;
 
         //ON liste les 9 cases
-        System.out.println("\n --------");
-        System.out.println("\n Les positions possibles");
+        //System.out.println("\n --------");
+        //System.out.println("\n Les positions possibles");
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {
                 squares.add(new Square(i, j));
@@ -38,17 +38,19 @@ public class RandomM implements BehaviorMove {
         }
 
         // ON SUPPRIME LES CAS IMPOSSIBLES
-        for (int z = 0; z < squares.size(); z++) {
+        for (int z = 0; z++ < squares.size(); ) {
             if (squares.get(z).getX() < 0 || squares.get(z).getX() > m.getSizeX()-1) {
                 if (squares.get(z).getY() < 0 || squares.get(z).getY() > m.getSizeY()-1) {
                     squares.remove(squares.get(z));
+                    z--;
+                    System.out.println("SUPPRESSION");
                 }
             }
             
         }
         
         
-        System.out.println("\n -------- ELAGAGE");
+        System.out.println("\n -------- ELAGAGE 1");
         for(int l =0; l < squares.size(); l++){
             System.out.println("x="+squares.get(l).getX()+" j="+squares.get(l).getY());
         }
@@ -56,12 +58,13 @@ public class RandomM implements BehaviorMove {
         System.out.println("On a supprimé les cases qui débordent");
         
         //On supprime les cases avec animaux Même celle où il se trouve
-        for (int w = 0; w < squares.size(); w++) {
+        for (int w = 0; w++ < squares.size();) {
             tempx = squares.get(w).getX();
             tempy = squares.get(w).getY();
             
             if (m.world[tempx][tempy].getHasAnimal()) {
                 squares.remove(squares.get(w));
+                w--;
             }
         }
         

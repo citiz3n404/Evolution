@@ -69,6 +69,11 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
             if (e.getActionCommand().equals("STOP")) {
                 c.endWindow();
             }
+            
+            if (e.getActionCommand().equals("SAVE")) {
+                
+                c.m.playATurn();
+            }
         }
 
     }

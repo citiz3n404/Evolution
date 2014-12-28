@@ -23,9 +23,9 @@ public class SheepEat implements BehaviorEat{
         y = animal.getPosY();
         
         if(m.world[x][y].getGrass()){
-            m.setNbGrass(m.getNbGrass()-1);
-            m.world[x][y].removeGrass();
-            animal.resetHunger();
+        m.setNbGrass(m.getNbGrass()-1);
+        m.world[x][y].removeGrass();
+        animal.resetHunger();
         }
         
     }

@@ -37,7 +37,6 @@ public class WolfMove implements BehaviorMove {
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {
                 list1.add(new Square(i, j));
-                //System.out.println("x=" + i + " j=" + j);
             }
         }
 
@@ -58,11 +57,10 @@ public class WolfMove implements BehaviorMove {
                 for (int j = 0; j < m.getListAnimals().size(); j++) {
                     if (m.getAnimal(j).getPosX() == list2.get(i).getX() && m.getAnimal(j).getPosY() == list2.get(i).getY()) {
                         if (m.getAnimal(j) instanceof Sheep) {
-                            System.out.println("ATTENTION LOUP SUR MOUTON !! -----------------------------------------------");
+                            //System.out.println("ATTENTION LOUP SUR MOUTON !! -----------------------------------------------");
                             finalx = m.getAnimal(j).getPosX();
                             finaly = m.getAnimal(j).getPosY();
-                            System.out.println("Coord : "+finalx+" "+finaly);
-
+                          
                             m.world[x][y].setHasAnimal(false);
                             m.world[x][y].setNumberOfAnimals(m.world[x][y].getNumberOfAnimals()-1);
                             
@@ -70,6 +68,7 @@ public class WolfMove implements BehaviorMove {
                             animal.setPosY(finaly);
                             m.world[finalx][finaly].setHasAnimal(true);
                             m.world[finalx][finaly].setNumberOfAnimals(m.world[finalx][finaly].getNumberOfAnimals()+1);
+                            System.out.println("Loup va en :"+finalx+" "+finaly);
                             flag = true;
                             break;
                         }
@@ -96,10 +95,10 @@ public class WolfMove implements BehaviorMove {
             animal.setPosX(list3.get(rand).getX());
             animal.setPosY(list3.get(rand).getY());
             m.world[animal.getPosX()][animal.getPosY()].setHasAnimal(true);
-            System.out.println("Loup va sur la case :"+animal.getPosX()+" "+animal.getPosY());
+            System.out.println("Loup va en :"+animal.getPosX()+" "+animal.getPosY());
 
         } else {
-            //Sinon on ne fait rien et on reste sur place
+            System.out.println("Loup va en :"+animal.getPosX()+" "+animal.getPosY());
         }
         }
 

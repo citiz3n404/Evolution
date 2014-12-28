@@ -50,8 +50,8 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer {
         this.setBackground(Color.BLACK);
     }
 
-    public void printWorld() {
-
+    public JPanel printWorld() {
+        JPanel pan = new JPanel();
         pan.setLayout(new GridBagLayout());
         pan.setBackground(Color.BLACK);
         Animal animal;
@@ -132,17 +132,17 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer {
         }
 
         this.add(pan, BorderLayout.CENTER);
-
+        
+        return pan;
     }
 
     @Override
     public void update() {
 
         if (controller.m.validWorld) {
-            this.remove(pan);
-            pan.removeAll();
-            printWorld();
-            this.add(pan);
+            this.removeAll();
+            this.add(printWorld());
+            
         }
     }
 }

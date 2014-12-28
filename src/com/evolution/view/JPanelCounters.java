@@ -132,8 +132,6 @@ public class JPanelCounters extends JPanel implements CONSTANTS, Observer{
 
     @Override
     public void update() {
-        //JLabel test = new JLabel(String.valueOf(controller.m.getNbWolfs()), SwingConstants.CENTER);
-       
         nbLaps.setText(String.valueOf(controller.m.getNbLaps()));
         c.fill  = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(10,10,20,10);

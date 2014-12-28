@@ -17,7 +17,7 @@ public class Sheep extends Animal{
         hunger      = SHEEP_HUNGER;
         alive       = true;
         m           = mParam;
-        behaviorMove        = new RandomMove(m);
+        behaviorMove  = new RandomMove(m);
         behaviorEat   = new SheepEat(m);
         this.setPosX(x);
         this.setPosY(y);

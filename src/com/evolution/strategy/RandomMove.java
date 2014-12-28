@@ -30,7 +30,7 @@ public class RandomMove implements BehaviorMove {
         int tempSize;
 
         //ON liste les 9 list1
-        System.out.println("\n --------");
+        
         //System.out.println("\n Les positions possibles");
         for (int i = x - 1; i <= x + 1; i++) {
             for (int j = y - 1; j <= y + 1; j++) {
@@ -89,7 +89,7 @@ public class RandomMove implements BehaviorMove {
             System.out.println("Mouton va en :"+animal.getPosX()+" "+animal.getPosY());
 
         } else {
-            //Sinon on ne fait rien et on reste sur place
+            System.out.println("Mouton reste sur place");
         }
 
     }

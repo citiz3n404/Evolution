@@ -58,6 +58,7 @@ public abstract class Animal implements CONSTANTS{
 
         if(hunger ==0){
             alive = false;
+            System.out.println("Mort de faim");
         }
     }
 }

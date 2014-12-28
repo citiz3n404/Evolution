@@ -126,7 +126,9 @@ public class Model implements Observable, CONSTANTS {
     public void moveAnimals() {
         
         for (int i = 0; i < animal.size(); i++) {
+            
             animal.get(i).birthday();
+            
             if(animal.get(i).alive){
                 animal.get(i).makeAMove();
                 animal.get(i).haveAMeal();
@@ -138,13 +140,25 @@ public class Model implements Observable, CONSTANTS {
     }
     
     public void playSimulation(){
-        do{
-            setNbLaps(getNbLaps() +1);
-            moveAnimals();
-            removeDeads();
-            growGrass();
+       // do{
+        
+        /* setNbLaps(getNbLaps() +1);
+        moveAnimals();
+        growGrass();
+        removeDeads();*/
+            
             notifyObserver();
-        }while(!animal.isEmpty());
+        //}while(!animal.isEmpty());
+    }
+    
+    public void playATurn(){
+        System.out.println("\n*****************\n* Tour : "+nbLaps+"\n*****************");
+        setNbLaps(getNbLaps() +1);
+        moveAnimals();
+        growGrass();
+        removeDeads();
+            
+        notifyObserver();
     }
     
     public void growGrass(){
@@ -152,6 +166,8 @@ public class Model implements Observable, CONSTANTS {
             for( int y =0; y<sizeY; y++){
                 if(world[x][y].getMinerals()){
                     world[x][y].addGrass();
+                    nbGrass ++;
+                    nbMinerals --;
                 }
             }
         }
@@ -164,11 +180,13 @@ public class Model implements Observable, CONSTANTS {
                 if(animal.get(i) instanceof Wolf){
                     System.out.println("Loup mort de vieillesse");
                     nbWolfs --;
+                    nbMinerals ++;
                     notifyObserver();
                 }
                 else if(animal.get(i) instanceof Sheep){
                     System.out.println("Mouton mort de vieillesse");
                     nbSheeps --;
+                    nbMinerals ++;
                     notifyObserver();
                 }
                 animal.remove(animal.get(i));
