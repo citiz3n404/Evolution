@@ -142,7 +142,10 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer {
         if (controller.m.validWorld) {
             this.removeAll();
             this.add(printWorld());
-            
+        }
+        else{
+            this.removeAll();
+            this.updateUI();
         }
     }
 }

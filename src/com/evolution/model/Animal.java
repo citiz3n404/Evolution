@@ -3,6 +3,7 @@ package com.evolution.model;
 
 import com.evolution.strategy.BehaviorEat;
 import com.evolution.strategy.BehaviorMove;
+import com.evolution.strategy.BehaviorReproduce;
 
 /**
  *
@@ -17,10 +18,12 @@ public abstract class Animal implements CONSTANTS{
     protected     boolean     sex;
     protected     BehaviorMove behaviorMove;
     protected     BehaviorEat  behaviorEat;
+    protected     BehaviorReproduce behaviorReproduce;
     
     public abstract void makeAMove();
     public abstract void haveAMeal();
     public abstract void resetHunger();
+    public abstract void makeABaby();
 
     public int getPosX(){
         return this.posX;

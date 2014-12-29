@@ -32,10 +32,8 @@ public class Model implements Observable, CONSTANTS {
     private int nbMinerals;
     private int nbLaps;
 
-    //STATUT DES BOUTONS
-    public boolean buttonStart;
-    public boolean buttonValidate;
     public boolean validWorld = false;
+    public boolean[] validBtn;
 
     private ArrayList<Animal> animal = new ArrayList<>();
     private ArrayList<Square> square = new ArrayList<>();
@@ -53,12 +51,38 @@ public class Model implements Observable, CONSTANTS {
         nbSheeps = 0;
         nbGrass = 0;
         nbMinerals = 0;
-        buttonStart = false;
+        /**
+         * 0-init / 1-play /2-save /3-reset /4-quit
+         */
+        validBtn = new boolean[5];
+        setBtn(1, true);
+        setBtn(2, true);
+        setBtn(3, true);
+
     }
 
     //**************************************************************************
     // METHODS
     //**************************************************************************
+    
+    public void resetModel(){
+        animal.clear();
+        square.clear();
+        
+        sizeX = 0;
+        sizeY = 0;
+        nbSquare = 0;
+        nbWolfs = 0;
+        nbSheeps = 0;
+        nbGrass = 0;
+        nbMinerals = 0;
+        nbLaps = 0;
+        
+        validWorld = false;
+
+        notifyObserver();
+    }
+    
     public void initUniverse() {
         System.out.println("initUniverse()");
         world = new Square[sizeX][sizeY];
@@ -152,6 +176,7 @@ public class Model implements Observable, CONSTANTS {
     }
     
     public void playATurn(){
+       
         System.out.println("\n*****************\n* Tour : "+nbLaps+"\n*****************");
         setNbLaps(getNbLaps() +1);
         moveAnimals();
@@ -159,6 +184,7 @@ public class Model implements Observable, CONSTANTS {
         removeDeads();
             
         notifyObserver();
+        
     }
     
     public void growGrass(){
@@ -176,17 +202,23 @@ public class Model implements Observable, CONSTANTS {
     public void removeDeads(){
         for(int i=0; i<animal.size(); i++){
             if(!animal.get(i).alive){
-                world[animal.get(i).getPosX()][animal.get(i).getPosY()].addMinerals();
-                if(animal.get(i) instanceof Wolf){
-                    System.out.println("Loup mort de vieillesse");
-                    nbWolfs --;
+                
+                if(!world[animal.get(i).getPosX()][animal.get(i).getPosY()].getGrass()){
                     nbMinerals ++;
+                }
+                
+                world[animal.get(i).getPosX()][animal.get(i).getPosY()].addMinerals();
+                
+                if(animal.get(i) instanceof Wolf){
+                    System.out.println("Loup mort");
+                    nbWolfs --;
+                    
                     notifyObserver();
                 }
                 else if(animal.get(i) instanceof Sheep){
-                    System.out.println("Mouton mort de vieillesse");
+                    System.out.println("Mouton mort");
                     nbSheeps --;
-                    nbMinerals ++;
+                    
                     notifyObserver();
                 }
                 animal.remove(animal.get(i));
@@ -295,6 +327,10 @@ public class Model implements Observable, CONSTANTS {
         return nbLaps;
     }
 
+    public void setBtn(int n, boolean bool){
+        validBtn[n] = bool;
+        notifyObserver();
+    }
     public void setSizeX(int x) {
         this.sizeX = x;
         notifyObserver();

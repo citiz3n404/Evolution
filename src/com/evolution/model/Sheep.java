@@ -41,4 +41,9 @@ public class Sheep extends Animal{
         hunger = SHEEP_HUNGER;
     }
 
+    @Override
+    public void makeABaby() {
+        behaviorReproduce.reproduce(this);
+    }
+
 }

@@ -16,7 +16,7 @@ public class Wolf extends Animal{
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
-    Wolf(int x, int y, Model mParam){
+    public Wolf(int x, int y, Model mParam){
         alive       = true;
         lifeTime    = WOLF_LIFETIME;
         hunger      = WOLF_HUNGER;
@@ -50,6 +50,11 @@ public class Wolf extends Animal{
     @Override
     public void haveAMeal() {
         behaviorEat.eat(this);
+    }
+
+    @Override
+    public void makeABaby() {
+        behaviorReproduce.reproduce(this);
     }
 
 }
