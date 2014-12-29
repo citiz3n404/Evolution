@@ -179,6 +179,10 @@ public class Model implements Observable, CONSTANTS {
         growGrass();
         removeDeads();
         //afficheNbAnimals();
+        
+        if(animal.isEmpty() && nbMinerals == 0){
+            setBtn(1, true);
+        }
             
         notifyObserver();
         

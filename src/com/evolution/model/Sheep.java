@@ -4,6 +4,7 @@ package com.evolution.model;
 import com.evolution.strategy.RandomM;
 import com.evolution.strategy.RandomMove;
 import com.evolution.strategy.SheepEat;
+import com.evolution.strategy.SheepMove;
 import com.evolution.strategy.SheepReproduce;
 
 /**
@@ -19,7 +20,7 @@ public class Sheep extends Animal{
         reproductivity = 0;
         alive       = true;
         m           = mParam;
-        behaviorMove  = new RandomMove(m);
+        behaviorMove  = new SheepMove(m);
         behaviorEat   = new SheepEat(m);
         behaviorReproduce = new SheepReproduce(m);
         this.setPosX(x);

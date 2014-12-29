@@ -19,6 +19,7 @@ public class Square {
         this.numberOfAnimals = 0;
         this.grass = false;
         this.minerals = false;
+        this.danger = 0;
     }
     
     public int getX(){
@@ -36,12 +37,20 @@ public class Square {
         return this.grass;
     }
     
+    public int getDanger(){
+        return danger;
+    }
+    
     public boolean getMinerals(){
         return this.minerals;
     }
 
     public void setX(int x){
         this.X = x;
+    }
+    
+    public void setDanger(int x){
+        danger = x;
     }
     
     public void setY(int y){

@@ -86,9 +86,6 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
         public void actionPerformed(ActionEvent e) {
             if (e.getActionCommand().equals("INIT")) {
                 JDialogParameters param = new JDialogParameters(c);
-                //playBtn.setEnabled(true); 
-                // On entre une fonction du controler qui met à jour le model et
-                // dit à la vue de se mettre à jour sur le model
             }
 
             if (e.getActionCommand().equals("STOP")) {

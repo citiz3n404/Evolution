@@ -12,6 +12,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -26,6 +27,7 @@ public class JPanelCounters extends JPanel implements CONSTANTS, Observer{
     JLabel sheeps           = new JLabel("SHEEPS", SwingConstants.CENTER);
     JLabel grass            = new JLabel("GRASS", SwingConstants.CENTER);
     JLabel minerals         = new JLabel("MINERALS", SwingConstants.CENTER);
+    JLabel icon = new JLabel(new ImageIcon(PATH_IMG + "legend.png"));
     
     JLabel nbLaps           = new JLabel("0", SwingConstants.CENTER);;
     JLabel nbWolfs;          
@@ -128,6 +130,13 @@ public class JPanelCounters extends JPanel implements CONSTANTS, Observer{
         c.gridx = 0;
         c.gridy = 9;
         this.add(nbMinerals, c);
+        
+        
+        c.fill  = GridBagConstraints.HORIZONTAL;
+        c.insets = new Insets(10,10,20,10);
+        c.gridx = 0;
+        c.gridy = 10;
+        this.add(icon, c);
     }
 
     @Override
