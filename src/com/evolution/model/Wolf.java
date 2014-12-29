@@ -5,6 +5,7 @@ import com.evolution.strategy.RandomM;
 import com.evolution.strategy.RandomMove;
 import com.evolution.strategy.WolfEat;
 import com.evolution.strategy.WolfMove;
+import com.evolution.strategy.WolfReproduce;
 
 /**
  *
@@ -20,9 +21,11 @@ public class Wolf extends Animal{
         alive       = true;
         lifeTime    = WOLF_LIFETIME;
         hunger      = WOLF_HUNGER;
+        reproductivity = 0;
         m = mParam;
         behaviorMove = new WolfMove(m);
         behaviorEat = new WolfEat(m);
+        behaviorReproduce = new  WolfReproduce(m);
         this.setPosX(x);
         this.setPosY(y);
         this.setSex();
@@ -55,6 +58,11 @@ public class Wolf extends Animal{
     @Override
     public void makeABaby() {
         behaviorReproduce.reproduce(this);
+    }
+
+    @Override
+    public void resetReproductivity() {
+        reproductivity = WOLF_REPRODUCTIVITY;
     }
 
 }

@@ -52,7 +52,7 @@ public class WolfMove implements BehaviorMove {
         // On note les cases, si il y a un mouton on sélectionne cette case, sinon on va dans les cases où il n'y a pas d'animaux
         //Verif des animaux et selection du mouton
         for (int i = 0; i < list2.size(); i++) {
-            if (m.world[list2.get(i).getX()][list2.get(i).getY()].getHasAnimal() && m.world[list2.get(i).getX()][list2.get(i).getY()].getNumberOfAnimals()<2) {
+            if (m.world[list2.get(i).getX()][list2.get(i).getY()].getNumberOfAnimals()==1) {
 
                 for (int j = 0; j < m.getListAnimals().size(); j++) {
                     if (m.getAnimal(j).getPosX() == list2.get(i).getX() && m.getAnimal(j).getPosY() == list2.get(i).getY()) {
@@ -61,12 +61,10 @@ public class WolfMove implements BehaviorMove {
                             finalx = m.getAnimal(j).getPosX();
                             finaly = m.getAnimal(j).getPosY();
                           
-                            m.world[x][y].setHasAnimal(false);
                             m.world[x][y].setNumberOfAnimals(m.world[x][y].getNumberOfAnimals()-1);
                             
                             animal.setPosX(finalx);
                             animal.setPosY(finaly);
-                            m.world[finalx][finaly].setHasAnimal(true);
                             m.world[finalx][finaly].setNumberOfAnimals(m.world[finalx][finaly].getNumberOfAnimals()+1);
                             System.out.println("Loup va en :"+finalx+" "+finaly);
                             flag = true;
@@ -91,10 +89,12 @@ public class WolfMove implements BehaviorMove {
            if (!list3.isEmpty()) {
             int rand = Model.randInt(0, list3.size() - 1);
 
-            m.world[x][y].setHasAnimal(false);
+            m.world[x][y].setNumberOfAnimals(m.world[x][y].getNumberOfAnimals() -1);
+            
             animal.setPosX(list3.get(rand).getX());
             animal.setPosY(list3.get(rand).getY());
-            m.world[animal.getPosX()][animal.getPosY()].setHasAnimal(true);
+            m.world[animal.getPosX()][animal.getPosY()].setNumberOfAnimals(m.world[animal.getPosX()][animal.getPosY()].getNumberOfAnimals()+1);
+            
             System.out.println("Loup va en :"+animal.getPosX()+" "+animal.getPosY());
 
         } else {

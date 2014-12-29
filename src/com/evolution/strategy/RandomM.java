@@ -62,7 +62,7 @@ public class RandomM implements BehaviorMove {
             tempx = squares.get(w).getX();
             tempy = squares.get(w).getY();
             
-            if (m.world[tempx][tempy].getHasAnimal()) {
+            if (m.world[tempx][tempy].getNumberOfAnimals() !=0) {
                 squares.remove(squares.get(w));
                 w--;
             }
@@ -77,11 +77,9 @@ public class RandomM implements BehaviorMove {
         if (!squares.isEmpty()) {
             int rand = Model.randInt(0, squares.size() - 1);
 
-            m.world[x][y].setHasAnimal(false);
             animal.setPosX(squares.get(rand).getX());
             animal.setPosY(squares.get(rand).getY());
             
-            m.world[animal.getPosX()][animal.getPosY()].setHasAnimal(true);
             System.out.println("On a choisi la case :"+animal.getPosX()+" "+animal.getPosY());
 
         } else {

@@ -4,6 +4,7 @@ package com.evolution.model;
 import com.evolution.strategy.RandomM;
 import com.evolution.strategy.RandomMove;
 import com.evolution.strategy.SheepEat;
+import com.evolution.strategy.SheepReproduce;
 
 /**
  * Class Sheep
@@ -12,13 +13,15 @@ import com.evolution.strategy.SheepEat;
 public class Sheep extends Animal{
     Model m;
     
-    Sheep(int x, int y, Model mParam){
+    public Sheep(int x, int y, Model mParam){
         lifeTime    = SHEEP_LIFETIME;
         hunger      = SHEEP_HUNGER;
+        reproductivity = 0;
         alive       = true;
         m           = mParam;
         behaviorMove  = new RandomMove(m);
         behaviorEat   = new SheepEat(m);
+        behaviorReproduce = new SheepReproduce(m);
         this.setPosX(x);
         this.setPosY(y);
         this.setSex();
@@ -44,6 +47,11 @@ public class Sheep extends Animal{
     @Override
     public void makeABaby() {
         behaviorReproduce.reproduce(this);
+    }
+
+    @Override
+    public void resetReproductivity() {
+        reproductivity = SHEEP_REPRODUCTIVITY;
     }
 
 }

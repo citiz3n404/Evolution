@@ -65,7 +65,7 @@ public class RandomMove implements BehaviorMove {
             tempx = list2.get(w).getX();
             tempy = list2.get(w).getY();
             
-            if (!(m.world[tempx][tempy].getHasAnimal())) {
+            if ((m.world[tempx][tempy].getNumberOfAnimals() == 0)) {
                 list3.add(list2.get(w));
             }
         }
@@ -80,11 +80,9 @@ public class RandomMove implements BehaviorMove {
         if (!list3.isEmpty()) {
             int rand = Model.randInt(0, list3.size() - 1);
 
-            m.world[x][y].setHasAnimal(false);
             m.world[x][y].setNumberOfAnimals(m.world[x][y].getNumberOfAnimals()-1);
             animal.setPosX(list3.get(rand).getX());
             animal.setPosY(list3.get(rand).getY());
-            m.world[animal.getPosX()][animal.getPosY()].setHasAnimal(true);
             m.world[animal.getPosX()][animal.getPosY()].setNumberOfAnimals(m.world[animal.getPosX()][animal.getPosY()].getNumberOfAnimals()+1);
             System.out.println("Mouton va en :"+animal.getPosX()+" "+animal.getPosY());
 

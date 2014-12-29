@@ -1,20 +1,25 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.evolution.strategy;
 
 import com.evolution.model.Animal;
 import com.evolution.model.Model;
 import com.evolution.model.Square;
-import com.evolution.model.Wolf;
+import com.evolution.model.Sheep;
 import java.util.ArrayList;
 
 /**
  *
  * @author Anthony
  */
-public class WolfReproduce implements BehaviorReproduce {
-
+public class SheepReproduce implements BehaviorReproduce{
+    
     Model m;
 
-    public WolfReproduce(Model mParam) {
+    public SheepReproduce(Model mParam) {
         m = mParam;
     }
 
@@ -22,8 +27,8 @@ public class WolfReproduce implements BehaviorReproduce {
     public void reproduce(Animal animal) {
         // Pour le moment on se contente d'ajouter un bébé
 
-        //Si il s'agit d'une louve
-        if (!animal.getSex() && animal instanceof Wolf && animal.getReproductivity()==0) {
+        //Si il s'agit d'une mouton
+        if (!animal.getSex() && animal instanceof Sheep && animal.getReproductivity()==0) {
             ArrayList<Square> list1 = new ArrayList<>();
             ArrayList<Square> list2 = new ArrayList<>();
 
@@ -72,15 +77,15 @@ public class WolfReproduce implements BehaviorReproduce {
                         //On cherche l'animal correspondant aux coord
                         if (m.getAnimal(j).getPosX() == list2.get(n).getX() && m.getAnimal(j).getPosY() == list2.get(n).getY()) {
                             
-                            if (m.getAnimal(j).getSex() && m.getAnimal(j) instanceof Wolf && m.getAnimal(j).getReproductivity() == 0) {
-                                System.out.println("Nouveau bébé loup en : "+tempSq.getX()+" "+ tempSq.getY());
-                                Wolf wolf = new Wolf(tempSq.getX(), tempSq.getY(), m);
-                                wolf.resetReproductivity();
-                                m.getListAnimals().add(wolf);
+                            if (m.getAnimal(j).getSex() && m.getAnimal(j) instanceof Sheep && m.getAnimal(j).getReproductivity() == 0) {
+                                System.out.println("Nouveau bébé mouton en : "+tempSq.getX()+" "+ tempSq.getY());
+                                Sheep sheep = new Sheep(tempSq.getX(), tempSq.getY(), m);
+                                sheep.resetReproductivity();
+                                m.getListAnimals().add(sheep);
                                 
                                 m.world[tempSq.getX()][tempSq.getY()].setNumberOfAnimals(1);
                                 
-                                m.setNbWolfs(m.getNbWolfs()+1);
+                                m.setNbSheep(m.getNbSheeps()+1);
                                 m.notifyObserver();
                                 animal.resetReproductivity();
                                 break end;

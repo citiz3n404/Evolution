@@ -121,13 +121,11 @@ public class Model implements Observable, CONSTANTS {
 
             if (i < nbSheeps) {
                 animal.add(new Sheep(sq.getX(), sq.getY(), this));
-                world[sq.getX()][sq.getY()].setHasAnimal(true);
-                world[sq.getX()][sq.getY()].setNumberOfAnimals(world[sq.getX()][sq.getY()].getNumberOfAnimals()+1);
+                world[sq.getX()][sq.getY()].setNumberOfAnimals(1);
 
             } else {
                 animal.add(new Wolf(sq.getX(), sq.getY(), this));
-                world[sq.getX()][sq.getY()].setHasAnimal(true);
-                world[sq.getX()][sq.getY()].setNumberOfAnimals(world[sq.getX()][sq.getY()].getNumberOfAnimals()+1);
+                world[sq.getX()][sq.getY()].setNumberOfAnimals(1);
             }
             square.remove(rand);
 
@@ -135,15 +133,12 @@ public class Model implements Observable, CONSTANTS {
 
     }
 
-    public void afficheListeAnimals() {
-        for (int i = 0; i < animal.size(); i++) {
-            if (animal.get(i) instanceof Sheep) {
-                System.out.println(i + " SHEEP COORD : X=" + animal.get(i).getPosX() + " Y=" + animal.get(i).getPosY());
-
-            } else {
-                System.out.println(i + " WOLF  COORD : X=" + animal.get(i).getPosX() + " Y=" + animal.get(i).getPosY());
+    public void afficheNbAnimals(){
+        for(int i=0; i<sizeX; i++){
+            for(int j=0; j<sizeY; j++){
+                System.out.print(world[j][i].getNumberOfAnimals()+" ");
             }
-
+            System.out.println();
         }
     }
 
@@ -154,10 +149,10 @@ public class Model implements Observable, CONSTANTS {
             animal.get(i).birthday();
             
             if(animal.get(i).alive){
+                animal.get(i).makeABaby();
                 animal.get(i).makeAMove();
                 animal.get(i).haveAMeal();
             }
-            
         }
 
         notifyObserver();
@@ -179,9 +174,11 @@ public class Model implements Observable, CONSTANTS {
        
         System.out.println("\n*****************\n* Tour : "+nbLaps+"\n*****************");
         setNbLaps(getNbLaps() +1);
+        
         moveAnimals();
         growGrass();
         removeDeads();
+        //afficheNbAnimals();
             
         notifyObserver();
         
@@ -221,7 +218,10 @@ public class Model implements Observable, CONSTANTS {
                     
                     notifyObserver();
                 }
+                world[animal.get(i).getPosX()][animal.get(i).getPosY()].setNumberOfAnimals(world[animal.get(i).getPosX()][animal.get(i).getPosY()].getNumberOfAnimals() -1);
+
                 animal.remove(animal.get(i));
+                
             }
         }
     }

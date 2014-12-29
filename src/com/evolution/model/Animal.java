@@ -16,6 +16,7 @@ public abstract class Animal implements CONSTANTS{
     protected     int         posX;
     protected     int         posY;
     protected     boolean     sex;
+    protected     int         reproductivity;
     protected     BehaviorMove behaviorMove;
     protected     BehaviorEat  behaviorEat;
     protected     BehaviorReproduce behaviorReproduce;
@@ -24,6 +25,7 @@ public abstract class Animal implements CONSTANTS{
     public abstract void haveAMeal();
     public abstract void resetHunger();
     public abstract void makeABaby();
+    public abstract void resetReproductivity();
 
     public int getPosX(){
         return this.posX;
@@ -31,6 +33,10 @@ public abstract class Animal implements CONSTANTS{
     
     public int getPosY(){
         return this.posY;
+    }
+    
+    public int getReproductivity(){
+        return reproductivity;
     }
     
     public boolean getSex(){
@@ -58,10 +64,13 @@ public abstract class Animal implements CONSTANTS{
     
     public void birthday() {
         hunger --;
+        
+        if(reproductivity != 0){
+            reproductivity --;
+        }
 
         if(hunger ==0){
             alive = false;
-            System.out.println("Mort de faim");
         }
     }
 }

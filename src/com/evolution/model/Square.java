@@ -8,7 +8,6 @@ package com.evolution.model;
 public class Square {
     private     int         X;
     private     int         Y;
-    private     boolean     hasAnimal;
     private     int         numberOfAnimals;
     private     boolean     grass;
     private     boolean     minerals;
@@ -40,11 +39,7 @@ public class Square {
     public boolean getMinerals(){
         return this.minerals;
     }
-    
-    public boolean getHasAnimal(){
-        return this.hasAnimal;
-    }
-    
+
     public void setX(int x){
         this.X = x;
     }
@@ -54,10 +49,6 @@ public class Square {
     }
     public void setNumberOfAnimals(int n){
         numberOfAnimals = n;
-    }
-    
-    public void setHasAnimal(boolean bool){
-        this.hasAnimal = bool;
     }
     
     public void setGrass(boolean bool){
