@@ -113,7 +113,7 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer, Seri
             
             if (e.getActionCommand().equals("SAVE")) {
 
-                c.m.saveModel(PATH_IMG);
+                c.saveWorld();
               
             }
             

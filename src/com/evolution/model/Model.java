@@ -97,7 +97,7 @@ public class Model implements Observable, CONSTANTS, Serializable {
         ObjectOutputStream output;
 
         try {
-            output = new ObjectOutputStream(new FileOutputStream("save.dat"));
+            output = new ObjectOutputStream(new FileOutputStream(path));
 
             output.writeInt(sizeX);
             output.writeInt(sizeY);

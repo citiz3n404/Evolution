@@ -26,6 +26,22 @@ public class Controller implements CONSTANTS, Serializable {
         System.exit(0);
     }
     
+    public void saveWorld(){
+        String txt = new String();
+        JFileChooser chooser = new JFileChooser();
+        chooser.setApproveButtonText("Enregistrer");
+        chooser.setDialogTitle("SAVE");
+        chooser.setCurrentDirectory(null);
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File selection = chooser.getSelectedFile();
+            txt = selection.getPath();
+        }
+        
+        System.out.println(txt);
+        m.saveModel(txt);
+    }
+    
     public void loadWorld(){
         
         String txt = new String();
