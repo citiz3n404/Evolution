@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.text.NumberFormat;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -24,7 +25,7 @@ import javax.swing.event.DocumentListener;
  *
  * @author Anthony
  */
-public class JDialogParameters extends JDialog implements CONSTANTS, Observer {
+public class JDialogParameters extends JDialog implements CONSTANTS, Observer, Serializable {
 
     //**************************************************************************
     // VARIABLES
@@ -370,6 +371,7 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer {
 
         validateButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                c.m.resetModel();
                 setVisible(false);
                 c.setValues();
                 c.m.validWorld = true;
@@ -378,7 +380,6 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer {
                 c.m.setBtn(1, false);
                 c.m.setBtn(2, false);
                 c.m.setBtn(3, false);
-                c.m.setBtn(0, true);
                 
             }
         });

@@ -4,12 +4,13 @@ package com.evolution.model;
 import com.evolution.strategy.BehaviorEat;
 import com.evolution.strategy.BehaviorMove;
 import com.evolution.strategy.BehaviorReproduce;
+import java.io.Serializable;
 
 /**
  *
  * @author Anthony
  */
-public abstract class Animal implements CONSTANTS{
+public abstract class Animal implements CONSTANTS, Serializable{
     protected     int         lifeTime;
     protected     int         hunger;
     protected     boolean     alive;

@@ -1,11 +1,13 @@
 
 package com.evolution.observer;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Anthony
  */
-public interface Observable {
+public interface Observable extends Serializable{
     /**
      * Ajoute un sujet à la liste des objets à notifier
      * @param o 

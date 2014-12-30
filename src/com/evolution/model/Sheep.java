@@ -6,12 +6,13 @@ import com.evolution.strategy.RandomMove;
 import com.evolution.strategy.SheepEat;
 import com.evolution.strategy.SheepMove;
 import com.evolution.strategy.SheepReproduce;
+import java.io.Serializable;
 
 /**
  * Class Sheep
  * @author Anthony
  */
-public class Sheep extends Animal{
+public class Sheep extends Animal implements Serializable{
     Model m;
     
     public Sheep(int x, int y, Model mParam){

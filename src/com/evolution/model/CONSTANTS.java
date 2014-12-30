@@ -1,11 +1,13 @@
 
 package com.evolution.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Anthony
  */
-public interface CONSTANTS {
+public interface CONSTANTS extends Serializable{
     //**************************************************************************
     // VARIABLES DES ANIMAUX
     //**************************************************************************

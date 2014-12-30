@@ -2,12 +2,16 @@ package com.evolution.controller;
 
 import com.evolution.model.CONSTANTS;
 import com.evolution.model.Model;
+import java.io.File;
+import java.io.Serializable;
+import javax.swing.JFileChooser;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Anthony
  */
-public class Controller implements CONSTANTS {
+public class Controller implements CONSTANTS, Serializable {
     public Model m;
     private int[] tempTab;
 
@@ -20,6 +24,26 @@ public class Controller implements CONSTANTS {
 
     public void endWindow() {
         System.exit(0);
+    }
+    
+    public void loadWorld(){
+        
+        String txt = new String();
+        JFileChooser chooser = new JFileChooser();
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File selection = chooser.getSelectedFile();
+            txt = selection.getPath();
+        }
+        
+        System.out.println(txt);
+        m.resetModel();
+        
+        setValues();
+        m.validWorld = true;
+        
+        m.loadModel(txt);
+        m.notifyObserver();
     }
 
     public void initOptimal() {

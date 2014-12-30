@@ -4,13 +4,14 @@ import com.evolution.model.Animal;
 import com.evolution.model.Model;
 import com.evolution.model.Square;
 import com.evolution.model.Wolf;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Anthony
  */
-public class SheepMove implements BehaviorMove {
+public class SheepMove implements BehaviorMove{
 
     Model m;
 
@@ -139,14 +140,25 @@ public class SheepMove implements BehaviorMove {
             }
 
         }
+        ArrayList<Square> list6 = new ArrayList<>(); 
+        
+        for(int q =0; q<list3.size(); q++){
+            if(list3.get(q).getX() == tempSq.getX() && list3.get(q).getY() == tempSq.getY()){
+                list6.add(list3.get(q));
+            }
+        }
+        
 
-        if(!list3.isEmpty()){
-            // Ne reste plus qu'a se déplacer sur tempSq
-            m.world[x][y].setNumberOfAnimals(m.world[x][y].getNumberOfAnimals() - 1);
-            animal.setPosX(tempSq.getX());
-            animal.setPosY(tempSq.getY());
+        if(!list6.isEmpty()){
+            int rand = Model.randInt(0, list6.size() - 1);
+
+            m.world[x][y].setNumberOfAnimals(m.world[x][y].getNumberOfAnimals()-1);
+            animal.setPosX(list6.get(rand).getX());
+            animal.setPosY(list6.get(rand).getY());
+            m.world[animal.getPosX()][animal.getPosY()].setNumberOfAnimals(m.world[animal.getPosX()][animal.getPosY()].getNumberOfAnimals()+1);
+
             System.out.println("Mouton va en :"+tempSq.getX()+" "+tempSq.getY());
-            m.world[tempSq.getX()][tempSq.getY()].setNumberOfAnimals(m.world[tempSq.getX()][tempSq.getY()].getNumberOfAnimals() + 1);
+            
         }
         else{
             System.out.println("Mouton reste sur place");

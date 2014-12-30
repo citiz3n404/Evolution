@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.io.Serializable;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -29,7 +30,7 @@ import javax.swing.JLayeredPane;
  *
  * @author Anthony
  */
-public class JPanelWorld extends JPanel implements CONSTANTS, Observer {
+public class JPanelWorld extends JPanel implements CONSTANTS, Observer, Serializable {
     GridBagConstraints c      = new GridBagConstraints();
     Controller  controller;
     JPanel      pan           = new JPanel();

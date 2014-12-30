@@ -5,13 +5,14 @@ import com.evolution.model.Animal;
 import com.evolution.model.Model;
 import com.evolution.model.Sheep;
 import com.evolution.model.Square;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Anthony
  */
-public class WolfMove implements BehaviorMove {
+public class WolfMove implements BehaviorMove{
 
     Model m;
 

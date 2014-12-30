@@ -1,11 +1,13 @@
 
 package com.evolution.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Anthony
  */
-public class Square {
+public class Square implements Serializable{
     private     int         X;
     private     int         Y;
     private     int         numberOfAnimals;

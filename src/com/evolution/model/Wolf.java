@@ -6,12 +6,13 @@ import com.evolution.strategy.RandomMove;
 import com.evolution.strategy.WolfEat;
 import com.evolution.strategy.WolfMove;
 import com.evolution.strategy.WolfReproduce;
+import java.io.Serializable;
 
 /**
  *
  * @author Anthony
  */
-public class Wolf extends Animal{
+public class Wolf extends Animal implements Serializable{
     Model m;
     
     //**************************************************************************

@@ -6,6 +6,7 @@ import com.evolution.model.Model;
 import com.evolution.observer.Observable;
 import com.evolution.observer.Observer;
 import java.awt.BorderLayout;
+import java.io.Serializable;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -14,7 +15,7 @@ import javax.swing.SwingUtilities;
  *
  * @author Anthony
  */
-public class View extends JFrame implements CONSTANTS, Observer {
+public class View extends JFrame implements CONSTANTS, Observer, Serializable {
 
     JPanel buttonBar;
     JPanel world;

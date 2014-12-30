@@ -11,6 +11,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.io.Serializable;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -21,13 +22,13 @@ import javax.swing.SwingConstants;
  *
  * @author Anthony
  */
-public class JPanelCounters extends JPanel implements CONSTANTS, Observer{
+public class JPanelCounters extends JPanel implements CONSTANTS, Observer, Serializable{
     JLabel laps             = new JLabel("LAPS", SwingConstants.CENTER);
     JLabel wolfs            = new JLabel("WOLFS", SwingConstants.CENTER);
     JLabel sheeps           = new JLabel("SHEEPS", SwingConstants.CENTER);
     JLabel grass            = new JLabel("GRASS", SwingConstants.CENTER);
     JLabel minerals         = new JLabel("MINERALS", SwingConstants.CENTER);
-    JLabel icon = new JLabel(new ImageIcon(PATH_IMG + "legend.png"));
+    JLabel icon = new JLabel(new ImageIcon(PATH_IMG + "avatar.png"));
     
     JLabel nbLaps           = new JLabel("0", SwingConstants.CENTER);;
     JLabel nbWolfs;          

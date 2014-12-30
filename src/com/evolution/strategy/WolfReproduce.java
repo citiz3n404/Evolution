@@ -4,6 +4,7 @@ import com.evolution.model.Animal;
 import com.evolution.model.Model;
 import com.evolution.model.Square;
 import com.evolution.model.Wolf;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**

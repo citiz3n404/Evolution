@@ -2,11 +2,16 @@ package com.evolution.view;
 
 import com.evolution.controller.Controller;
 import com.evolution.model.CONSTANTS;
+import static com.evolution.model.CONSTANTS.PATH_IMG;
 import com.evolution.observer.Observer;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -17,13 +22,14 @@ import javax.swing.event.ChangeListener;
  *
  * @author Anthony
  */
-public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
+public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer, Serializable {
 
     private JButton initBtn;
-    private JButton stopBtn;
+    private JButton quitBtn;
     private JButton playBtn;
     private JButton saveBtn;
     private JButton resetBtn;
+    private JButton loadBtn;
 
     public Controller c;
 
@@ -37,15 +43,20 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
         initBtn.addActionListener(a);
         initBtn.setPreferredSize(new Dimension(40, 40));
 
-        stopBtn = new JButton(new ImageIcon(PATH_IMG + "quit.png"));
-        stopBtn.setActionCommand("STOP");
-        stopBtn.addActionListener(a);
-        stopBtn.setPreferredSize(new Dimension(40, 40));
+        quitBtn = new JButton(new ImageIcon(PATH_IMG + "quit.png"));
+        quitBtn.setActionCommand("QUIT");
+        quitBtn.addActionListener(a);
+        quitBtn.setPreferredSize(new Dimension(40, 40));
 
         playBtn = new JButton(new ImageIcon(PATH_IMG + "play.png"));
         playBtn.setActionCommand("PLAY");
         playBtn.addActionListener(a);
         playBtn.setPreferredSize(new Dimension(40, 40));
+        
+        loadBtn = new JButton(new ImageIcon(PATH_IMG + "load.png"));
+        loadBtn.setActionCommand("LOAD");
+        loadBtn.addActionListener(a);
+        loadBtn.setPreferredSize(new Dimension(40, 40));
         
         resetBtn = new JButton(new ImageIcon(PATH_IMG + "reset.png"));
         resetBtn.setActionCommand("RESET");
@@ -60,12 +71,14 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
         this.add(initBtn);
         this.add(playBtn);
         this.add(saveBtn);
+        this.add(loadBtn);
         this.add(resetBtn);
-        this.add(stopBtn);
+        this.add(quitBtn);
         
         playBtn.setEnabled(false);
         saveBtn.setEnabled(false);
         resetBtn.setEnabled(false);
+        //loadBtn.setEnabled(false);
     }
 
     @Override
@@ -77,7 +90,7 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
         playBtn.setEnabled(!c.m.validBtn[1]);
         saveBtn.setEnabled(!c.m.validBtn[2]);
         resetBtn.setEnabled(!c.m.validBtn[3]);
-        stopBtn.setEnabled(!c.m.validBtn[4]);
+        quitBtn.setEnabled(!c.m.validBtn[4]);
     }
 
     class ActionButton implements ActionListener {
@@ -88,13 +101,26 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
                 JDialogParameters param = new JDialogParameters(c);
             }
 
-            if (e.getActionCommand().equals("STOP")) {
-                c.endWindow();
+            if (e.getActionCommand().equals("LOAD")) {
+                
+                c.loadWorld();
             }
             
             if (e.getActionCommand().equals("PLAY")) {
                 
                 c.m.playATurn();
+            }
+            
+            if (e.getActionCommand().equals("SAVE")) {
+
+                c.m.saveModel(PATH_IMG);
+              
+            }
+            
+            if (e.getActionCommand().equals("QUIT")) {
+                
+                c.endWindow();
+              
             }
             
             if (e.getActionCommand().equals("RESET")) {

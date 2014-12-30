@@ -2,6 +2,7 @@
 package com.evolution.strategy;
 
 import com.evolution.model.Animal;
+import java.io.Serializable;
 
 /**
  *
