@@ -150,8 +150,9 @@ public class SheepMove implements BehaviorMove{
         }
         ArrayList<Square> list6 = new ArrayList<>(); 
         
+        // Si dans la list3 il y a des cases qui ont le même danger que tempSq alors on les ajoute 
         for(int q =0; q<list3.size(); q++){
-            if(list3.get(q).getX() == tempSq.getX() && list3.get(q).getY() == tempSq.getY()){
+            if(list3.get(q).getDanger() == tempSq.getDanger()){
                 list6.add(list3.get(q));
             }
         }

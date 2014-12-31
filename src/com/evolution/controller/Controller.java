@@ -64,14 +64,10 @@ public class Controller implements CONSTANTS, Serializable {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File selection = chooser.getSelectedFile();
             txt = selection.getPath();
-            m.resetModel();
+            
             System.out.println(txt);
 
-            setValues();
-            m.validWorld = true;
-
             m.loadModel(txt);
-            m.notifyObserver();
         }
 
     }
