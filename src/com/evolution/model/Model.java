@@ -229,7 +229,6 @@ public class Model implements Observable, CONSTANTS {
 
         } catch (IOException ex) {
             System.out.println("WORLD LOADING FAILED !");
-            //resetModel();
         }
 
     }
@@ -264,7 +263,7 @@ public class Model implements Observable, CONSTANTS {
 
     /**
      * Methods that create animals using square list created by
-     * initSquarePossibilities it use a random number to select the square of
+     * initSquarePossibilities, it use a random number to select the square of
      * each animal and then remove de square in the list to don't allow animal
      * to be on another one
      */
