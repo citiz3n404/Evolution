@@ -39,6 +39,7 @@ public class Controller implements CONSTANTS, Serializable {
     public void saveWorld() {
         String txt = new String();
         JFileChooser chooser = new JFileChooser();
+        chooser.setPreferredSize (new java.awt.Dimension (JFILECHOOSER_SIZE_L, JFILECHOOSER_SIZE_H));
         chooser.setApproveButtonText("Enregistrer");
         chooser.setDialogTitle("SAVE");
         chooser.setCurrentDirectory(null);
@@ -60,6 +61,7 @@ public class Controller implements CONSTANTS, Serializable {
 
         String txt = new String();
         JFileChooser chooser = new JFileChooser();
+        chooser.setPreferredSize (new java.awt.Dimension (JFILECHOOSER_SIZE_L, JFILECHOOSER_SIZE_H));
         int returnVal = chooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File selection = chooser.getSelectedFile();

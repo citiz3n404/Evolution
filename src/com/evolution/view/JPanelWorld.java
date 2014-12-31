@@ -34,6 +34,8 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer{
     GridBagConstraints c      = new GridBagConstraints();
     Controller  controller;
     JPanel      pan           = new JPanel();
+    JPanel      panLegend     = new JPanel();
+    JLabel      legend        = new JLabel(new ImageIcon(PATH_IMG + "legend2.png"));
     ImageIcon   imgBack       = new ImageIcon(PATH_IMG + "groundg.png");
     ImageIcon   imgGrass      = new ImageIcon(PATH_IMG + "grass.png");
     ImageIcon   imgWolf       = new ImageIcon(PATH_IMG + "mwolf.png");
@@ -53,6 +55,9 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer{
         controller = cParam;
         this.setLayout(new BorderLayout());
         this.setBackground(Color.BLACK);
+        
+        panLegend.setLayout(new BorderLayout());
+        panLegend.setBackground(new Color(13,13,13));
     }
 
     /**
@@ -60,6 +65,7 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer{
      * @return JPanel
      */
     public JPanel printWorld() {
+        
         JPanel pan = new JPanel();
         pan.setLayout(new GridBagLayout());
         pan.setBackground(Color.BLACK);
@@ -140,8 +146,9 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer{
             }
         }
 
+        panLegend.add(legend, BorderLayout.CENTER);
         this.add(pan, BorderLayout.CENTER);
-        
+        this.add(panLegend, BorderLayout.NORTH);
         return pan;
     }
 

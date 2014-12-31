@@ -347,7 +347,7 @@ public class Model implements Observable, CONSTANTS {
      */
     public void playATurn() {
 
-        System.out.println("\n*****************\n* Tour : " + nbLaps + "\n*****************");
+        System.out.println("\n*****************\n* Tour : " + (nbLaps+1) + "\n*****************");
         setNbLaps(getNbLaps() + 1);
 
         moveAnimals();
@@ -357,6 +357,7 @@ public class Model implements Observable, CONSTANTS {
 
         if (animal.isEmpty() && nbMinerals == 0) {
             setBtn(1, true);
+            System.out.println("UNIVERS MORT");
         }
 
         notifyObserver();

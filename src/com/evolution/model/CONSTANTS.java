@@ -22,11 +22,14 @@ public interface CONSTANTS{
     //**************************************************************************
     // VARIABLES GRAPHIQUES
     //**************************************************************************
-    public static final     int         FRAME_SIZE_L        = 960;
+    public static final     int         FRAME_SIZE_L        = 1000;
     public static final     int         FRAME_SIZE_H        = 860;
     
     public static final     int         JDIALOG_SIZE_L      = 550;
     public static final     int         JDIALOG_SIZE_H      = 450;
+    
+    public static final     int         JFILECHOOSER_SIZE_L = 700;
+    public static final     int         JFILECHOOSER_SIZE_H = 600;
     
     public static final     String      FRAME_TITLE         = "EVOLUTION";
     public static final     String      JDIALOG_TITLE       = "WORLD BUILDER";
