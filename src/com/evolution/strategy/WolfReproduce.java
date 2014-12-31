@@ -4,21 +4,28 @@ import com.evolution.model.Animal;
 import com.evolution.model.Model;
 import com.evolution.model.Square;
 import com.evolution.model.Wolf;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ * Class WolfReproduce / Pattern Strategy
  * @author Anthony
  */
 public class WolfReproduce implements BehaviorReproduce {
 
     Model m;
 
+    /**
+     * Constructor of the WolfReproduce behavior
+     * @param mParam Model
+     */
     public WolfReproduce(Model mParam) {
         m = mParam;
     }
 
+    /**
+     * Method reproduce
+     * @param animal Animal
+     */
     @Override
     public void reproduce(Animal animal) {
         // Pour le moment on se contente d'ajouter un bébé

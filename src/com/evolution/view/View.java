@@ -12,16 +12,20 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 /**
- *
+ * JFrame that contains the differents JPanels
  * @author Anthony
  */
-public class View extends JFrame implements CONSTANTS, Observer, Serializable {
+public class View extends JFrame implements CONSTANTS{
 
     JPanel buttonBar;
     JPanel world;
     JPanel counters;
     Controller c;
 
+    /**
+     * Construction of the JFrame
+     * @param cParam Controller
+     */
     public View(Controller cParam) {
         c = cParam;
         buttonBar = new JPanelButtonBar(c);
@@ -45,8 +49,4 @@ public class View extends JFrame implements CONSTANTS, Observer, Serializable {
         this.getContentPane().add(world, BorderLayout.CENTER);
     }
 
-    @Override
-    public void update() {
-   
-    }
 }

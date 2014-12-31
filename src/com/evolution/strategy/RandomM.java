@@ -6,8 +6,10 @@ import com.evolution.model.Square;
 import java.util.ArrayList;
 
 /**
- *
+ * Class unused, it was a test for the move behavior, I wanna use only one
+ * ArrayList but it didn't worked / Pattern Strategy
  * @author Anthony
+ * @deprecated 
  */
 public class RandomM implements BehaviorMove {
 

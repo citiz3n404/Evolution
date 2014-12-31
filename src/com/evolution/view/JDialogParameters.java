@@ -8,7 +8,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.Serializable;
 import java.text.NumberFormat;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -22,10 +21,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 /**
- *
+ * Open a JDialog with differents field and option for building the world
  * @author Anthony
  */
-public class JDialogParameters extends JDialog implements CONSTANTS, Observer, Serializable {
+public class JDialogParameters extends JDialog implements CONSTANTS, Observer{
 
     //**************************************************************************
     // VARIABLES
@@ -48,9 +47,18 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer, S
     JFormattedTextField sizeY = new JFormattedTextField(NumberFormat.getIntegerInstance());
     JLabel messageHeadLabel = new JLabel("Attention, tous les champs doivent être remplis");
 
+    
+    
+    
+    
+    
     //**************************************************************************
     // CONSTRUCTOR
     //**************************************************************************
+    /**
+     * Constructor of the JDialog
+     * @param cParam Controller
+     */
     public JDialogParameters(Controller cParam) {
         c = cParam;
         c.m.registerObserver((Observer) this);
@@ -66,9 +74,17 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer, S
 
     }
 
+    
+    
+    
+    
+    
     //**************************************************************************
     // METHODS
     //**************************************************************************
+    /**
+     * Initalize all components of the JDialog
+     */
     private void initComponents() {
 
         // VARIABLES -----------------------------------------------------------
@@ -392,6 +408,10 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer, S
         this.getContentPane().add(control, BorderLayout.SOUTH);
     }
 
+    /**
+     * Update the values of an Array in the controller with le current values 
+     * of the fields
+     */
     public void updateFields() {
         sizeX.setText(String.valueOf(c.getValueTempTab(0)));
         sizeY.setText(String.valueOf(c.getValueTempTab(1)));
@@ -403,6 +423,10 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer, S
         //speedField.setText(String.valueOf(c.m.getSpeed()));
     }
 
+    /**
+     * Pattern Observer, update buttons saying if is enabled of not and if
+     * values are correct or not
+     */
     @Override
     public void update() {
         if (c.fieldValidation()) {

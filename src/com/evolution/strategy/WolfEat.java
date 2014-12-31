@@ -3,20 +3,27 @@ package com.evolution.strategy;
 import com.evolution.model.Animal;
 import com.evolution.model.Model;
 import com.evolution.model.Sheep;
-import java.io.Serializable;
 
 /**
- *
+ * Class WolfEat / Pattern Strategy
  * @author Anthony
  */
 public class WolfEat implements BehaviorEat {
 
     Model m;
 
+    /**
+     * Constructor of the WolfEat behavior
+     * @param mParam Model
+     */
     public WolfEat(Model mParam) {
         m = mParam;
     }
 
+    /**
+     * Method eat
+     * @param animal Animal
+     */
     @Override
     public void eat(Animal animal) {
         int x, y;

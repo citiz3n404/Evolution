@@ -5,21 +5,28 @@ import com.evolution.model.Animal;
 import com.evolution.model.Model;
 import com.evolution.model.Sheep;
 import com.evolution.model.Square;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ * Class WolfMove / Pattern Strategy
  * @author Anthony
  */
 public class WolfMove implements BehaviorMove{
 
     Model m;
 
+    /**
+     * Constructor of the WolfMove Behavior
+     * @param mParam Model
+     */
     public WolfMove(Model mParam) {
         m = mParam;
     }
 
+    /**
+     * Method move
+     * @param animal Animal
+     */
     @Override
     public void move(Animal animal) {
         ArrayList<Square> list1 = new ArrayList<>();

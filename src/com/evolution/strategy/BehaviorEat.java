@@ -1,17 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.evolution.strategy;
 
 import com.evolution.model.Animal;
-import java.io.Serializable;
 
 /**
- *
+ * Interface BehaviorEat / Pattern Strategy
  * @author Anthony
  */
 public interface BehaviorEat{
+    /**
+     * The animal eat
+     * @param animal Animal
+     */
     public void eat(Animal animal);
 }

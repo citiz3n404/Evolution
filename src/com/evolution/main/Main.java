@@ -7,7 +7,7 @@ import com.evolution.observer.Observer;
 import com.evolution.view.View;
 
 /**
- * Class principale contenant la fonction main
+ * Main class that execute the MVC program
  * @author Anthony
  */
 public class Main {
@@ -16,12 +16,19 @@ public class Main {
     public Controller c;
     public View v;
     
+    /**
+     * Constructor of the main class
+     */
     public Main(){
         m = new Model();
         c = new Controller(m);
         v = new View(c);
     }
     
+    /**
+     * Main function that execute the program
+     * @param args 
+     */
     public static void main(String[] args){
         Main program = new Main();
     }

@@ -8,7 +8,7 @@ package com.evolution.model;
 import java.io.Serializable;
 
 /**
- *
+ * Class only used for the save of animals
  * @author Anthony
  */
 public class AnimalBis implements Serializable{

@@ -1,29 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.evolution.strategy;
 
 import com.evolution.model.Animal;
 import com.evolution.model.Model;
 import com.evolution.model.Square;
 import com.evolution.model.Sheep;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ * Class SheepReproduce / Pattern Strategy
  * @author Anthony
  */
 public class SheepReproduce implements BehaviorReproduce{
     
     Model m;
 
+    /**
+     * Constructor of the SheepReproduce behavior
+     * @param mParam Model
+     */
     public SheepReproduce(Model mParam) {
         m = mParam;
     }
 
+    /**
+     * Method reproduce
+     * @param animal Animal
+     */
     @Override
     public void reproduce(Animal animal) {
         // Pour le moment on se contente d'ajouter un bébé

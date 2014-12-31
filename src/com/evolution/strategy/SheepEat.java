@@ -6,16 +6,24 @@ import com.evolution.model.Model;
 import java.io.Serializable;
 
 /**
- *
+ * Class SheepEat / Pattern Strategy
  * @author Anthony
  */
 public class SheepEat implements BehaviorEat{
     Model m;
     
+    /**
+     * Constructor of the SheepEat behavior
+     * @param mParam Model
+     */
     public SheepEat(Model mParam){
         m = mParam;
     }
 
+    /**
+     * Method eat
+     * @param animal Animal
+     */
     @Override
     public void eat(Animal animal) {
         int x, y;

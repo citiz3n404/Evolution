@@ -8,17 +8,25 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ * Class sheep move / Pattern Strategy
  * @author Anthony
  */
 public class SheepMove implements BehaviorMove{
 
     Model m;
 
+    /**
+     * Constructor of the SheepMove behavior
+     * @param mParam Model
+     */
     public SheepMove(Model mParam) {
         m = mParam;
     }
 
+    /**
+     * Method move
+     * @param animal Animal
+     */
     @Override
     public void move(Animal animal) {
         ArrayList<Square> list1 = new ArrayList<>(); // Cas possibles

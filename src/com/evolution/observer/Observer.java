@@ -1,13 +1,12 @@
 
 package com.evolution.observer;
 
-import java.io.Serializable;
 
 /**
- *
+ * Pattern Observer
  * @author Anthony
  */
-public interface Observer extends Serializable{
+public interface Observer{
     /**
      * Fonction qui met à jour 
      */

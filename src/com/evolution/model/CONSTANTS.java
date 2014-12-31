@@ -4,10 +4,10 @@ package com.evolution.model;
 import java.io.Serializable;
 
 /**
- *
+ * Interface that contains all importants constants of the project
  * @author Anthony
  */
-public interface CONSTANTS extends Serializable{
+public interface CONSTANTS{
     //**************************************************************************
     // VARIABLES DES ANIMAUX
     //**************************************************************************

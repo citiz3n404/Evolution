@@ -27,10 +27,10 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
 /**
- *
+ * JPanel that contains the world
  * @author Anthony
  */
-public class JPanelWorld extends JPanel implements CONSTANTS, Observer, Serializable {
+public class JPanelWorld extends JPanel implements CONSTANTS, Observer{
     GridBagConstraints c      = new GridBagConstraints();
     Controller  controller;
     JPanel      pan           = new JPanel();
@@ -45,12 +45,20 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer, Serializ
     ImageIcon   imgTreeSide   = new ImageIcon(PATH_IMG + "treeside.png");
     ImageIcon   imgTreeDown   = new ImageIcon(PATH_IMG + "treedown.png");
 
+    /**
+     * Constructor of the JPanel
+     * @param cParam Controller
+     */
     public JPanelWorld(Controller cParam) {
         controller = cParam;
         this.setLayout(new BorderLayout());
         this.setBackground(Color.BLACK);
     }
 
+    /**
+     * Create a JPanel using the gridbaglayout to print the world
+     * @return JPanel
+     */
     public JPanel printWorld() {
         JPanel pan = new JPanel();
         pan.setLayout(new GridBagLayout());
@@ -137,6 +145,9 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer, Serializ
         return pan;
     }
 
+    /**
+     * Pattern Observer, actualize the world
+     */
     @Override
     public void update() {
 

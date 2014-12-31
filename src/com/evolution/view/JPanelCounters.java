@@ -19,10 +19,10 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 /**
- *
+ * JPanel of counters
  * @author Anthony
  */
-public class JPanelCounters extends JPanel implements CONSTANTS, Observer, Serializable{
+public class JPanelCounters extends JPanel implements CONSTANTS, Observer{
     JLabel laps             = new JLabel("LAPS", SwingConstants.CENTER);
     JLabel wolfs            = new JLabel("WOLFS", SwingConstants.CENTER);
     JLabel sheeps           = new JLabel("SHEEPS", SwingConstants.CENTER);

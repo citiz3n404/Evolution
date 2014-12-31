@@ -19,10 +19,10 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 /**
- *
+ * JPanel of the button bar
  * @author Anthony
  */
-public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer, Serializable {
+public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
 
     private JButton initBtn;
     private JButton quitBtn;
@@ -35,6 +35,10 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer, Seri
 
     ActionButton a = new ActionButton();
 
+    /**
+     * Contruction the Button bar
+     * @param cParam Controller
+     */
     public JPanelButtonBar(Controller cParam) {
         c = cParam;
 
@@ -81,6 +85,9 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer, Seri
         //loadBtn.setEnabled(false);
     }
 
+    /**
+     * Pattern Observer, it updates the status of all buttons "enabled or not"
+     */
     @Override
     public void update() {
          /**

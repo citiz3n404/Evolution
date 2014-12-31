@@ -8,7 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 
 /**
- *
+ * Controller of the MVC
  * @author Anthony
  */
 public class Controller implements CONSTANTS, Serializable {
@@ -16,16 +16,26 @@ public class Controller implements CONSTANTS, Serializable {
     public Model m;
     private int[] tempTab;
 
+    /**
+     * Constructor of the controller
+     * @param mParam Model
+     */
     public Controller(Model mParam) {
         m = mParam;
         tempTab = new int[10];
 
     }
 
+    /**
+     * Quit the program
+     */
     public void endWindow() {
         System.exit(0);
     }
 
+    /**
+     * Open a JFileChooser and use a save method to save the model
+     */
     public void saveWorld() {
         String txt = new String();
         JFileChooser chooser = new JFileChooser();
@@ -43,6 +53,9 @@ public class Controller implements CONSTANTS, Serializable {
         
     }
 
+    /**
+     * Open a JFileChooser to load a saved world
+     */
     public void loadWorld() {
 
         String txt = new String();
@@ -63,6 +76,10 @@ public class Controller implements CONSTANTS, Serializable {
 
     }
 
+    /**
+     * Initalize the parameters of the model with Optimal parameters in the 
+     * Constants interface
+     */
     public void initOptimal() {
 
         /*
@@ -81,6 +98,9 @@ public class Controller implements CONSTANTS, Serializable {
         m.notifyObserver();
     }
 
+    /**
+     * Initialize the parameters of the model with random values
+     */
     public void initRandom() {
         tempTab[0] = (int) (Math.random() * (30 - 10)) + 10;
         tempTab[1] = (int) (Math.random() * (30 - 10)) + 10;
@@ -94,6 +114,9 @@ public class Controller implements CONSTANTS, Serializable {
         m.notifyObserver();
     }
 
+    /**
+     * Set the values from the controller to the model
+     */
     public void setValues() {
         m.setSizeX(tempTab[0]);
         m.setSizeY(tempTab[1]);
@@ -106,6 +129,10 @@ public class Controller implements CONSTANTS, Serializable {
         m.setNbElements(tempTab[8]);
     }
 
+    /**
+     * If the values in the JDialog are correct, it returns true, else false
+     * @return boolean
+     */
     public boolean fieldValidation() {
         if (((tempTab[0] * tempTab[1]) >= (tempTab[3] + tempTab[2])) && ((tempTab[0] * tempTab[1]) >= (tempTab[4] + tempTab[5])) && tempTab[0] > 0 && tempTab[1] > 0) {
             return true;
@@ -114,10 +141,20 @@ public class Controller implements CONSTANTS, Serializable {
         }
     }
 
+    /**
+     * Return a value of the tempArray of the controller contained in the index
+     * @param index int
+     * @return int
+     */
     public int getValueTempTab(int index) {
         return tempTab[index];
     }
 
+    /**
+     * Set the value of the tempArray contained in the index by v and notify observers
+     * @param index int
+     * @param v int
+     */
     public void setTempTab(int index, int v) {
         this.tempTab[index] = v;
 
@@ -132,6 +169,10 @@ public class Controller implements CONSTANTS, Serializable {
 
     }
 
+    /**
+     * Initialize the simulation, creating squares, animals, grass and minerals
+     * then notify observers
+     */
     public void initSimulation() {
         m.initUniverse(); // Crée les cases
         m.initAnimals(); // Crée les animaux

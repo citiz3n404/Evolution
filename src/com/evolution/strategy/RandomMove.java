@@ -6,17 +6,26 @@ import com.evolution.model.Square;
 import java.util.ArrayList;
 
 /**
- *
+ * Class Random move, the animal go on an empty square randomly or stay
+ * where is he. / Pattern Strategy
  * @author Anthony
  */
 public class RandomMove implements BehaviorMove {
 
     Model m;
 
+    /**
+     * Constructor of the RandomMove
+     * @param mParam Model
+     */
     public RandomMove(Model mParam) {
         m = mParam;
     }
 
+    /**
+     * Method of move
+     * @param animal 
+     */
     @Override
     public void move(Animal animal) {
         ArrayList<Square> list1 = new ArrayList<>();
