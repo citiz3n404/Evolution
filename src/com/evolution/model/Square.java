@@ -28,6 +28,7 @@ public class Square implements Serializable{
         this.minerals = false;
         this.danger = 0;
     }
+
     
     /**
      * Return the position X of the square

@@ -69,7 +69,7 @@ public class SheepMove implements BehaviorMove{
             }
         }
 
-        // On ajoute 3 de danger à toutes les cases qui ont de l'herbe et qui n'ont pas d'animaux
+        // On enleve 3 de danger à toutes les cases qui ont de l'herbe et qui n'ont pas d'animaux
         for (int i = 0; i < list3.size(); i++) {
             tempx = list3.get(i).getX();
             tempy = list3.get(i).getY();
@@ -112,7 +112,7 @@ public class SheepMove implements BehaviorMove{
                         tempx = m.getListAnimals().get(z).getPosX();
                         tempy = m.getListAnimals().get(z).getPosY();
 
-                        ArrayList<Square> list5 = new ArrayList<>(); // list des possibles pour le loup
+                        ArrayList<Square> list5 = new ArrayList<>(); // list des possibles pour le mouton
 
                         for (int r = tempx - 1; r <= tempx + 1; r++) {
                             for (int w = tempy - 1; w <= tempy + 1; w++) {
@@ -120,14 +120,20 @@ public class SheepMove implements BehaviorMove{
                             }
                         }
 
-                        //On compare la liste des cases adjacentes au loup avec la liste des cases vides.
+                        //On compare la liste des cases adjacentes au moyon avec la liste des cases vides.
                         for (int f = 0; f < list3.size(); f++) {
                             tempx = list3.get(f).getX();
                             tempy = list3.get(f).getY();
 
                             for (int g = 0; g < list5.size(); g++) {
                                 if (list5.get(g).getX() == tempx && list5.get(g).getY() == tempy) {
-                                    list3.get(f).setDanger(list3.get(f).getDanger() - 2);
+                                    if(m.getListAnimals().get(z).getSex() != animal.getSex()){
+                                        list3.get(f).setDanger(list3.get(f).getDanger() - 3);
+                                    }
+                                    else{
+                                        list3.get(f).setDanger(list3.get(f).getDanger() - 2);
+                                    }
+                                    
                                 }
                             }
                         }

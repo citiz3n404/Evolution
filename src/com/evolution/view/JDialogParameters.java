@@ -393,9 +393,15 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer{
                 c.m.validWorld = true;
                 c.initSimulation();
                 
+                /**
+                * 0-init / 1-play /2-save /3-reset /4-quit /5-stop /6-load
+                */
+                // TRUE  = HIDEN
                 c.m.setBtn(1, false);
                 c.m.setBtn(2, false);
                 c.m.setBtn(3, false);
+                c.m.setBtn(5, true);
+                c.m.setBtn(6, false);
                 
             }
         });

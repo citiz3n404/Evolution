@@ -6,6 +6,8 @@
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/strategy/RandomMove.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/strategy/SheepReproduce.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/view/JPanelButtonBar.java</file>
+            <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/model/Animal.java</file>
+            <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/main/Main.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/strategy/WolfMove.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/view/View.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/view/JPanelCounters.java</file>
@@ -13,7 +15,10 @@
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/strategy/WolfEat.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/controller/Controller.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/model/Model.java</file>
+            <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/model/Square.java</file>
+            <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/model/SaveModel.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/view/JPanelWorld.java</file>
+            <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/model/AnimalBis.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/strategy/WolfReproduce.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/view/JDialogParameters.java</file>
             <file>file:/D:/Anthony/Lab/Creative_Lab/JAVA/Evolution/src/com/evolution/model/CONSTANTS.java</file>

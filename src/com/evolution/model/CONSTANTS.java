@@ -35,7 +35,7 @@ public interface CONSTANTS{
     public static final     String      JDIALOG_TITLE       = "WORLD BUILDER";
     
     public static final     int         FONT_COUNTERS_SIZE  = 20;
-    public static final     int         FONT_COUNTERS_NUMBERS = 30;
+    public static final     int         FONT_COUNTERS_NUMBERS = 19;
     
     public static final     String      PATH_IMG            = "src/com/evolution/view/img/";
     

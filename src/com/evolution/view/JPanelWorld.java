@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.evolution.view;
 
 import com.evolution.controller.Controller;
@@ -35,7 +31,7 @@ public class JPanelWorld extends JPanel implements CONSTANTS, Observer{
     Controller  controller;
     JPanel      pan           = new JPanel();
     JPanel      panLegend     = new JPanel();
-    JLabel      legend        = new JLabel(new ImageIcon(PATH_IMG + "legend2.png"));
+    JLabel      legend        = new JLabel(new ImageIcon(PATH_IMG + "legend3.png"));
     ImageIcon   imgBack       = new ImageIcon(PATH_IMG + "groundg.png");
     ImageIcon   imgGrass      = new ImageIcon(PATH_IMG + "grass.png");
     ImageIcon   imgWolf       = new ImageIcon(PATH_IMG + "mwolf.png");

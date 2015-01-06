@@ -2,6 +2,7 @@ package com.evolution.model;
 
 import com.evolution.observer.Observable;
 import com.evolution.observer.Observer;
+import java.awt.event.ActionEvent;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractAction;
+import javax.swing.Timer;
 
 /**
  * Model of the MVC
@@ -37,9 +40,14 @@ public class Model implements Observable, CONSTANTS {
     private int nbGrass;
     private int nbMinerals;
     private int nbLaps;
+    
+    public int speed;
 
     public boolean validWorld = false;
     public boolean[] validBtn;
+
+    public boolean flagDeadUniverse = false;
+    public boolean flagStop = false;
 
     private ArrayList<Animal> animal = new ArrayList<>();
     private ArrayList<Square> square = new ArrayList<>();
@@ -62,12 +70,15 @@ public class Model implements Observable, CONSTANTS {
         nbGrass = 0;
         nbMinerals = 0;
         /**
-         * 0-init / 1-play /2-save /3-reset /4-quit
+         * 0-init / 1-play /2-save /3-reset /4-quit /5-pause /6-load
          */
-        validBtn = new boolean[5];
+        validBtn = new boolean[7];
         setBtn(1, true);
         setBtn(2, true);
         setBtn(3, true);
+        setBtn(5, true);
+        
+        speed = 500;
 
     }
 
@@ -95,6 +106,8 @@ public class Model implements Observable, CONSTANTS {
         nbElements = 0;
 
         validWorld = false;
+        flagStop = true;
+        flagDeadUniverse = false;
 
         notifyObserver();
     }
@@ -169,7 +182,7 @@ public class Model implements Observable, CONSTANTS {
             if (tempInt == 123456789) {
                 resetModel();
                 validWorld = true;
-                
+
                 sizeX = input.readInt();
                 sizeY = input.readInt();
                 nbSquare = input.readInt();
@@ -245,6 +258,7 @@ public class Model implements Observable, CONSTANTS {
                 world[x][y] = new Square(x, y);
             }
         }
+
     }
 
     /**
@@ -345,23 +359,61 @@ public class Model implements Observable, CONSTANTS {
     /**
      * Method that play de turn moving animals,growing grass and removing deads
      */
-    public void playATurn() {
+    /*public void playATurn() {
+    
+     System.out.println("\n*****************\n* Tour : " + (nbLaps+1) + "\n*****************");
+     setNbLaps(getNbLaps() + 1);
+    
+     moveAnimals();
+     growGrass();
+     removeDeads();
+     //afficheNbAnimals();
+    
+     if (animal.isEmpty() && nbMinerals == 0) {
+     setBtn(1, true);
+     System.out.println("UNIVERS MORT");
+     }
+    
+     notifyObserver();
+    
+     }*/
+    private Timer timer = new Timer(500, new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if (flagDeadUniverse != true && flagStop == false) {
+                play();
+            }
+        }
 
-        System.out.println("\n*****************\n* Tour : " + (nbLaps+1) + "\n*****************");
+    });
+
+    /**
+     * Method that play de turn moving animals,growing grass and removing deads
+     */
+    public void playATurn() {
+        timer.start();
+    }
+
+    private void play() {
+        System.out.println("\n*****************\n* Tour : " + (nbLaps + 1) + "\n*****************");
         setNbLaps(getNbLaps() + 1);
 
         moveAnimals();
         growGrass();
         removeDeads();
-        //afficheNbAnimals();
-
         if (animal.isEmpty() && nbMinerals == 0) {
+            /**
+             * 0-init / 1-play /2-save /3-reset /4-quit /5-pause /6-load
+             */
             setBtn(1, true);
+            setBtn(2, true);
+            setBtn(5, true);
             System.out.println("UNIVERS MORT");
+            flagDeadUniverse = true;
         }
 
         notifyObserver();
-
+        timer.start();
     }
 
     /**
