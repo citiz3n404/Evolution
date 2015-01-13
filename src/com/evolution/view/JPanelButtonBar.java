@@ -81,24 +81,14 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
         stopBtn.setActionCommand("STOP");
         stopBtn.addActionListener(a);
         stopBtn.setPreferredSize(new Dimension(40, 40));
-
-        /* undoBtn = new JButton(new ImageIcon(PATH_IMG + "undo.png"));
-         undoBtn.setActionCommand("UNDO");
-         undoBtn.addActionListener(a);
-         undoBtn.setPreferredSize(new Dimension(40, 40));
         
-         redoBtn = new JButton(new ImageIcon(PATH_IMG + "redo.png"));
-         redoBtn.setActionCommand("REDO");
-         redoBtn.addActionListener(a);
-         redoBtn.setPreferredSize(new Dimension(40, 40));*/
         this.add(initBtn);
         this.add(playBtn);
         this.add(stopBtn);
 
         this.add(saveBtn);
         this.add(loadBtn);
-        /*        this.add(undoBtn);
-         this.add(redoBtn);*/
+        
         this.add(resetBtn);
         this.add(quitBtn);
 
@@ -106,7 +96,6 @@ public class JPanelButtonBar extends JPanel implements CONSTANTS, Observer {
         saveBtn.setEnabled(false);
         resetBtn.setEnabled(false);
         stopBtn.setEnabled(false);
-        //loadBtn.setEnabled(false);
     }
 
     /**

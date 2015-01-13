@@ -21,12 +21,12 @@ public class Square implements Serializable{
      * @param y int Position Y
      */
     public Square(int x, int y){
-        this.X = x;
-        this.Y = y;
-        this.numberOfAnimals = 0;
-        this.grass = false;
-        this.minerals = false;
-        this.danger = 0;
+        this.X                  = x;
+        this.Y                  = y;
+        this.numberOfAnimals    = 0;
+        this.grass              = false;
+        this.minerals           = false;
+        this.danger             = 0;
     }
 
     

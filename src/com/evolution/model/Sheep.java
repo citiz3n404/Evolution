@@ -22,13 +22,13 @@ public class Sheep extends Animal{
      * @param mParam Model
      */
     public Sheep(int x, int y, Model mParam){
-        lifeTime    = SHEEP_LIFETIME;
-        hunger      = SHEEP_HUNGER;
-        reproductivity = 0;
-        alive       = true;
-        m           = mParam;
-        behaviorMove  = new SheepMove(m);
-        behaviorEat   = new SheepEat(m);
+        lifeTime        = SHEEP_LIFETIME;
+        hunger          = SHEEP_HUNGER;
+        reproductivity  = 0;
+        alive           = true;
+        m               = mParam;
+        behaviorMove    = new SheepMove(m);
+        behaviorEat     = new SheepEat(m);
         behaviorReproduce = new SheepReproduce(m);
         this.setPosX(x);
         this.setPosY(y);

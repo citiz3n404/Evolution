@@ -32,20 +32,19 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer{
     private JLabel icon;
     private JLabel messageLabel;
     private JButton validateButton, cancelButton;
-    JButton randomButton = new JButton("Paramètres Aléatoires");
-    JButton definedButton = new JButton("Paramètres Optimaux");
+    JButton randomButton                = new JButton("Paramètres Aléatoires");
+    JButton definedButton               = new JButton("Paramètres Optimaux");
     Controller c;
-    JPanel control = new JPanel();
-    JPanel areaMessage = new JPanel();
+    JPanel control                      = new JPanel();
+    JPanel areaMessage                  = new JPanel();
 
-    JFormattedTextField nbWolfs = new JFormattedTextField(NumberFormat.getIntegerInstance());
-    JFormattedTextField nbSheeps = new JFormattedTextField(NumberFormat.getIntegerInstance());
-    JFormattedTextField nbGrass = new JFormattedTextField(NumberFormat.getIntegerInstance());
-    JFormattedTextField nbMinerals = new JFormattedTextField(NumberFormat.getIntegerInstance());
-    JFormattedTextField speedField = new JFormattedTextField(NumberFormat.getIntegerInstance());
-    JFormattedTextField sizeX = new JFormattedTextField(NumberFormat.getIntegerInstance());
-    JFormattedTextField sizeY = new JFormattedTextField(NumberFormat.getIntegerInstance());
-    JLabel messageHeadLabel = new JLabel("Attention, tous les champs doivent être remplis");
+    JFormattedTextField nbWolfs         = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    JFormattedTextField nbSheeps        = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    JFormattedTextField nbGrass         = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    JFormattedTextField nbMinerals      = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    JFormattedTextField sizeX           = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    JFormattedTextField sizeY           = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    JLabel messageHeadLabel             = new JLabel("Attention, tous les champs doivent être remplis");
 
     
     
@@ -90,26 +89,24 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer{
         // VARIABLES -----------------------------------------------------------
         icon = new JLabel(new ImageIcon(PATH_IMG + "worldbuilder.png"));
 
-        validateButton = new JButton("Validate");
-        cancelButton = new JButton("Cancel");
-        JPanel panIcon = new JPanel();
+        validateButton                  = new JButton("Validate");
+        cancelButton                    = new JButton("Cancel");
+        JPanel panIcon                  = new JPanel();
 
-        JPanel numberAnimals = new JPanel();
-        JPanel numberGrass = new JPanel();
-        JPanel sizeField = new JPanel();
-        JPanel buttons = new JPanel();
-        JPanel speed = new JPanel();
+        JPanel numberAnimals            = new JPanel();
+        JPanel numberGrass              = new JPanel();
+        JPanel sizeField                = new JPanel();
+        JPanel buttons                  = new JPanel();
 
-        JPanel content = new JPanel();
+        JPanel content                  = new JPanel();
 
-        JLabel nbWolfsLabel = new JLabel("Nombre de Loups :");
-        JLabel nbSheepsLabel = new JLabel("Nombre de Moutons :");
-        JLabel nbGrassLabel = new JLabel("Nombre d'Herbe :");
-        JLabel nbMineralsLabel = new JLabel("Nombre de Minéraux :");
+        JLabel nbWolfsLabel             = new JLabel("Nombre de Loups :");
+        JLabel nbSheepsLabel            = new JLabel("Nombre de Moutons :");
+        JLabel nbGrassLabel             = new JLabel("Nombre d'Herbe :");
+        JLabel nbMineralsLabel          = new JLabel("Nombre de Minéraux :");
 
-        JLabel sizeXLabel = new JLabel("Nombre de Colones :");
-        JLabel sizeYLabel = new JLabel("Nombre de Lignes :");
-        JLabel speedLabel = new JLabel("Temps de visualisation par tour :");
+        JLabel sizeXLabel               = new JLabel("Nombre de Colones :");
+        JLabel sizeYLabel               = new JLabel("Nombre de Lignes :");
 
 
         /*
@@ -307,16 +304,17 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer{
                 //updateData();
             }
         });
+        
+        
 
         //Image
         panIcon.setLayout(new BorderLayout());
         panIcon.add(icon);
 
         // Champ animaux
-        numberAnimals.setPreferredSize(new Dimension(380, 60));
-        sizeField.setPreferredSize(new Dimension(380, 60));
-        numberGrass.setPreferredSize(new Dimension(380, 60));
-        speed.setPreferredSize(new Dimension(380, 60));
+        numberAnimals.setPreferredSize(new Dimension(380,70));
+        sizeField.setPreferredSize(new Dimension(380, 70));
+        numberGrass.setPreferredSize(new Dimension(380, 70));
 
         nbWolfs.setPreferredSize(new Dimension(50, 25));
         nbSheeps.setPreferredSize(new Dimension(50, 25));
@@ -324,12 +322,10 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer{
         nbMinerals.setPreferredSize(new Dimension(50, 25));
         sizeX.setPreferredSize(new Dimension(50, 25));
         sizeY.setPreferredSize(new Dimension(50, 25));
-        speedField.setPreferredSize(new Dimension(50, 25));
 
         numberAnimals.setBorder(BorderFactory.createTitledBorder("Paramètres animaux"));
         numberGrass.setBorder(BorderFactory.createTitledBorder("Paramètres du Terrain"));
         sizeField.setBorder(BorderFactory.createTitledBorder("Taille du Terrain"));
-        speed.setBorder(BorderFactory.createTitledBorder("Vitesse de Simulation"));
 
         sizeField.add(sizeXLabel);
         sizeField.add(sizeX);
@@ -346,16 +342,12 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer{
         numberGrass.add(nbMineralsLabel);
         numberGrass.add(nbMinerals);
 
-        speed.add(speedLabel);
-        speed.add(speedField);
-
         buttons.add(randomButton);
         buttons.add(definedButton);
 
         content.add(sizeField);
         content.add(numberAnimals);
         content.add(numberGrass);
-        content.add(speed);
         content.add(buttons);
 
         control.setBackground(Color.lightGray);
@@ -426,7 +418,6 @@ public class JDialogParameters extends JDialog implements CONSTANTS, Observer{
         nbGrass.setText(String.valueOf(c.getValueTempTab(4)));
         nbMinerals.setText(String.valueOf(c.getValueTempTab(5)));
 
-        //speedField.setText(String.valueOf(c.m.getSpeed()));
     }
 
     /**

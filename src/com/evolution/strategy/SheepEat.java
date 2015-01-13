@@ -28,13 +28,13 @@ public class SheepEat implements BehaviorEat{
     public void eat(Animal animal) {
         int x, y;
         
-        x = animal.getPosX();
-        y = animal.getPosY();
+        x       = animal.getPosX();
+        y       = animal.getPosY();
         
         if(m.world[x][y].getGrass()){
-        m.setNbGrass(m.getNbGrass()-1);
-        m.world[x][y].removeGrass();
-        animal.resetHunger();
+            m.setNbGrass(m.getNbGrass()-1);
+            m.world[x][y].removeGrass();
+            animal.resetHunger();
         }
         
     }

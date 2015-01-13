@@ -9,13 +9,13 @@ package com.evolution.observer;
 public interface Observable{
     /**
      * Ajoute un sujet à la liste des objets à notifier
-     * @param o 
+     * @param o Observer
      */
     public void registerObserver(Observer o);
     
     /**
      * Supprime un sujet de la liste des objets à notifier
-     * @param o 
+     * @param o Observer
      */
     public void deleteObserver(Observer o);
     

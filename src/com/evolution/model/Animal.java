@@ -18,6 +18,7 @@ public abstract class Animal implements CONSTANTS{
     protected     int         posY;
     protected     boolean     sex;
     protected     int         reproductivity;
+    
     protected     BehaviorMove behaviorMove;
     protected     BehaviorEat  behaviorEat;
     protected     BehaviorReproduce behaviorReproduce;
@@ -55,7 +56,7 @@ public abstract class Animal implements CONSTANTS{
     
     /**
      * Return the sex of the animal true for male false for female
-     * @return 
+     * @return Boolean
      */
     public boolean getSex(){
         return this.sex;

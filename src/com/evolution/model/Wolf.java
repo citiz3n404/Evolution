@@ -25,14 +25,14 @@ public class Wolf extends Animal implements Serializable{
      * @param mParam Model
      */
     public Wolf(int x, int y, Model mParam){
-        alive       = true;
-        lifeTime    = WOLF_LIFETIME;
-        hunger      = WOLF_HUNGER;
-        reproductivity = 0;
-        m = mParam;
-        behaviorMove = new WolfMove(m);
-        behaviorEat = new WolfEat(m);
-        behaviorReproduce = new  WolfReproduce(m);
+        alive               = true;
+        lifeTime            = WOLF_LIFETIME;
+        hunger              = WOLF_HUNGER;
+        reproductivity      = 0;
+        m                   = mParam;
+        behaviorMove        = new WolfMove(m);
+        behaviorEat         = new WolfEat(m);
+        behaviorReproduce   = new  WolfReproduce(m);
         this.setPosX(x);
         this.setPosY(y);
         this.setSex();

@@ -24,7 +24,7 @@ public class RandomMove implements BehaviorMove {
 
     /**
      * Method of move
-     * @param animal 
+     * @param animal Animal
      */
     @Override
     public void move(Animal animal) {
@@ -32,8 +32,8 @@ public class RandomMove implements BehaviorMove {
         ArrayList<Square> list2 = new ArrayList<>();
         ArrayList<Square> list3 = new ArrayList<>();
         
-        int x = animal.getPosX();
-        int y = animal.getPosY();
+        int x                   = animal.getPosX();
+        int y                   = animal.getPosY();
         int tempx;
         int tempy;
         int tempSize;

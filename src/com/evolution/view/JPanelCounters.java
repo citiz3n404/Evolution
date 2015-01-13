@@ -28,7 +28,7 @@ public class JPanelCounters extends JPanel implements CONSTANTS, Observer{
     JLabel sheeps           = new JLabel("SHEEPS", SwingConstants.CENTER);
     JLabel grass            = new JLabel("GRASS", SwingConstants.CENTER);
     JLabel minerals         = new JLabel("MINERALS", SwingConstants.CENTER);
-    JLabel icon = new JLabel(new ImageIcon(PATH_IMG + "avatar.png"));
+    JLabel icon             = new JLabel(new ImageIcon(PATH_IMG + "avatar.png"));
     
     JLabel nbLaps           = new JLabel("0", SwingConstants.CENTER);;
     JLabel nbWolfs;          
@@ -40,12 +40,12 @@ public class JPanelCounters extends JPanel implements CONSTANTS, Observer{
     Controller controller;
     
     public JPanelCounters(Controller cParam){
-        controller = cParam;
+        controller  = cParam;
         
-        nbWolfs = new JLabel(String.valueOf(controller.m.getNbWolfs()), SwingConstants.CENTER);
-        nbSheeps = new JLabel(String.valueOf(controller.m.getNbSheeps()), SwingConstants.CENTER);
-        nbGrass = new JLabel(String.valueOf(controller.m.getNbGrass()), SwingConstants.CENTER);
-        nbMinerals = new JLabel(String.valueOf(controller.m.getNbMinerals()), SwingConstants.CENTER);
+        nbWolfs     = new JLabel(String.valueOf(controller.m.getNbWolfs()), SwingConstants.CENTER);
+        nbSheeps    = new JLabel(String.valueOf(controller.m.getNbSheeps()), SwingConstants.CENTER);
+        nbGrass     = new JLabel(String.valueOf(controller.m.getNbGrass()), SwingConstants.CENTER);
+        nbMinerals  = new JLabel(String.valueOf(controller.m.getNbMinerals()), SwingConstants.CENTER);
         
         this.setBackground(new Color(20,20,20));
         this.setLayout(new GridBagLayout());

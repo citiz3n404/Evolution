@@ -27,33 +27,30 @@ public class Model implements Observable, CONSTANTS {
 
     public Square[][] world;
 
-    private int sizeX; // Lines of the grid
-    private int sizeY; // Columns of the grid
+    private int                     sizeX; // Lines of the grid
+    private int                     sizeY; // Columns of the grid
 
-    //VARIABLES DE VERIFS
-    private int nbSquare;
-    private int nbAnimals;
-    private int nbElements;
+    private int                     nbSquare;
+    private int                     nbAnimals;
+    private int                     nbElements;
 
-    private int nbWolfs;
-    private int nbSheeps;
-    private int nbGrass;
-    private int nbMinerals;
-    private int nbLaps;
+    private int                     nbWolfs;
+    private int                     nbSheeps;
+    private int                     nbGrass;
+    private int                     nbMinerals;
+    private int                     nbLaps;
     
-    public int speed;
+    public boolean                  validWorld          = false;
+    public boolean[]                validBtn;
 
-    public boolean validWorld = false;
-    public boolean[] validBtn;
+    public boolean                  flagDeadUniverse    = false;
+    public boolean                  flagStop            = false;
 
-    public boolean flagDeadUniverse = false;
-    public boolean flagStop = false;
+    private ArrayList<Animal>       animal              = new ArrayList<>();
+    private ArrayList<Square>       square              = new ArrayList<>();
+    private ArrayList<AnimalBis>    animalCopy          = new ArrayList<>();
 
-    private ArrayList<Animal> animal = new ArrayList<>();
-    private ArrayList<Square> square = new ArrayList<>();
-    private ArrayList<AnimalBis> animalCopy = new ArrayList<>();
-
-    private ArrayList<Observer> observer = new ArrayList<>();
+    private ArrayList<Observer>     observer            = new ArrayList<>();
 
     //**************************************************************************
     // CONSTRUCTOR
@@ -62,13 +59,13 @@ public class Model implements Observable, CONSTANTS {
      * Constructor of the model
      */
     public Model() {
-        sizeX = 0;
-        sizeY = 0;
-        nbSquare = 0;
-        nbWolfs = 0;
-        nbSheeps = 0;
-        nbGrass = 0;
-        nbMinerals = 0;
+        sizeX           = 0;
+        sizeY           = 0;
+        nbSquare        = 0;
+        nbWolfs         = 0;
+        nbSheeps        = 0;
+        nbGrass         = 0;
+        nbMinerals      = 0;
         /**
          * 0-init / 1-play /2-save /3-reset /4-quit /5-pause /6-load
          */
@@ -77,8 +74,6 @@ public class Model implements Observable, CONSTANTS {
         setBtn(2, true);
         setBtn(3, true);
         setBtn(5, true);
-        
-        speed = 500;
 
     }
 
@@ -92,22 +87,22 @@ public class Model implements Observable, CONSTANTS {
         animal.clear();
         square.clear();
 
-        sizeX = 0;
-        sizeY = 0;
-        nbSquare = 0;
-        nbWolfs = 0;
-        nbSheeps = 0;
-        nbGrass = 0;
-        nbMinerals = 0;
-        nbLaps = 0;
+        sizeX               = 0;
+        sizeY               = 0;
+        nbSquare            = 0;
+        nbWolfs             = 0;
+        nbSheeps            = 0;
+        nbGrass             = 0;
+        nbMinerals          = 0;
+        nbLaps              = 0;
 
-        nbAnimals = 0;
-        nbSquare = 0;
-        nbElements = 0;
+        nbAnimals           = 0;
+        nbSquare            = 0;
+        nbElements          = 0;
 
-        validWorld = false;
-        flagStop = true;
-        flagDeadUniverse = false;
+        validWorld          = false;
+        flagStop            = true;
+        flagDeadUniverse    = false;
 
         notifyObserver();
     }
@@ -141,13 +136,13 @@ public class Model implements Observable, CONSTANTS {
 
             for (int z = 0; z < animal.size(); z++) {
                 animalCopy.add(new AnimalBis());
-                animalCopy.get(z).alive = animal.get(z).alive;
-                animalCopy.get(z).hunger = animal.get(z).hunger;
-                animalCopy.get(z).lifeTime = animal.get(z).lifeTime;
-                animalCopy.get(z).posX = animal.get(z).posX;
-                animalCopy.get(z).posY = animal.get(z).posY;
+                animalCopy.get(z).alive         = animal.get(z).alive;
+                animalCopy.get(z).hunger        = animal.get(z).hunger;
+                animalCopy.get(z).lifeTime      = animal.get(z).lifeTime;
+                animalCopy.get(z).posX          = animal.get(z).posX;
+                animalCopy.get(z).posY          = animal.get(z).posY;
                 animalCopy.get(z).reproductivity = animal.get(z).reproductivity;
-                animalCopy.get(z).sex = animal.get(z).sex;
+                animalCopy.get(z).sex           = animal.get(z).sex;
 
                 if (animal.get(z) instanceof Wolf) {
                     animalCopy.get(z).animal = 1;
@@ -183,21 +178,21 @@ public class Model implements Observable, CONSTANTS {
                 resetModel();
                 validWorld = true;
 
-                sizeX = input.readInt();
-                sizeY = input.readInt();
-                nbSquare = input.readInt();
-                nbWolfs = input.readInt();
-                nbSheeps = input.readInt();
-                nbGrass = input.readInt();
-                nbMinerals = input.readInt();
-                nbLaps = input.readInt();
+                sizeX       = input.readInt();
+                sizeY       = input.readInt();
+                nbSquare    = input.readInt();
+                nbWolfs     = input.readInt();
+                nbSheeps    = input.readInt();
+                nbGrass     = input.readInt();
+                nbMinerals  = input.readInt();
+                nbLaps      = input.readInt();
                 int listSize = input.readInt();
 
-                nbAnimals = nbWolfs + nbSheeps;
-                nbElements = nbGrass + nbMinerals;
-                nbSquare = sizeX + sizeY;
+                nbAnimals   = nbWolfs + nbSheeps;
+                nbElements  = nbGrass + nbMinerals;
+                nbSquare    = sizeX + sizeY;
 
-                world = new Square[sizeX][sizeY];
+                world       = new Square[sizeX][sizeY];
 
                 for (int i = 0; i < sizeX; i++) {
                     for (int j = 0; j < sizeY; j++) {
@@ -342,42 +337,11 @@ public class Model implements Observable, CONSTANTS {
         notifyObserver();
     }
 
-    /**
-     * Method unused becauseof a problem
-     */
-    public void playSimulation() {
-        // do{
-
-        /* setNbLaps(getNbLaps() +1);
-         moveAnimals();
-         growGrass();
-         removeDeads();*/
-        //notifyObserver();
-        //}while(!animal.isEmpty());
-    }
 
     /**
-     * Method that play de turn moving animals,growing grass and removing deads
+     * Timer lauched when the universe is not dead and the pause is not activated
      */
-    /*public void playATurn() {
-    
-     System.out.println("\n*****************\n* Tour : " + (nbLaps+1) + "\n*****************");
-     setNbLaps(getNbLaps() + 1);
-    
-     moveAnimals();
-     growGrass();
-     removeDeads();
-     //afficheNbAnimals();
-    
-     if (animal.isEmpty() && nbMinerals == 0) {
-     setBtn(1, true);
-     System.out.println("UNIVERS MORT");
-     }
-    
-     notifyObserver();
-    
-     }*/
-    private Timer timer = new Timer(500, new AbstractAction() {
+    private Timer timer = new Timer(SPEED_OPTIMAL, new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent ae) {
             if (flagDeadUniverse != true && flagStop == false) {
@@ -388,12 +352,15 @@ public class Model implements Observable, CONSTANTS {
     });
 
     /**
-     * Method that play de turn moving animals,growing grass and removing deads
+     * Method that activate the timer
      */
     public void playATurn() {
         timer.start();
     }
 
+    /**
+     * Method that play de turn moving animals,growing grass and removing deads
+     */
     private void play() {
         System.out.println("\n*****************\n* Tour : " + (nbLaps + 1) + "\n*****************");
         setNbLaps(getNbLaps() + 1);
@@ -408,6 +375,7 @@ public class Model implements Observable, CONSTANTS {
             setBtn(1, true);
             setBtn(2, true);
             setBtn(5, true);
+            setBtn(6, false);
             System.out.println("UNIVERS MORT");
             flagDeadUniverse = true;
         }
@@ -662,6 +630,7 @@ public class Model implements Observable, CONSTANTS {
         this.sizeY = y;
         notifyObserver();
     }
+    
 
     /**
      * Set the number of wolfs and notify observers

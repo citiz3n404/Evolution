@@ -26,7 +26,7 @@ public interface CONSTANTS{
     public static final     int         FRAME_SIZE_H        = 860;
     
     public static final     int         JDIALOG_SIZE_L      = 550;
-    public static final     int         JDIALOG_SIZE_H      = 450;
+    public static final     int         JDIALOG_SIZE_H      = 400;
     
     public static final     int         JFILECHOOSER_SIZE_L = 700;
     public static final     int         JFILECHOOSER_SIZE_H = 600;
@@ -35,7 +35,7 @@ public interface CONSTANTS{
     public static final     String      JDIALOG_TITLE       = "WORLD BUILDER";
     
     public static final     int         FONT_COUNTERS_SIZE  = 20;
-    public static final     int         FONT_COUNTERS_NUMBERS = 19;
+    public static final     int         FONT_COUNTERS_NUMBERS = 25;
     
     public static final     String      PATH_IMG            = "src/com/evolution/view/img/";
     
@@ -49,4 +49,5 @@ public interface CONSTANTS{
     public static final     int         NB_SHEEPS_OPTIMAL           = 30;
     public static final     int         NB_GRASS_OPTIMAL            = 400;
     public static final     int         NB_MINERALS_OPTIMAL         = 0;
+    public static final     int         SPEED_OPTIMAL               = 500;
 }

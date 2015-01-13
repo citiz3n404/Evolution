@@ -27,10 +27,10 @@ public class View extends JFrame implements CONSTANTS{
      * @param cParam Controller
      */
     public View(Controller cParam) {
-        c = cParam;
-        buttonBar = new JPanelButtonBar(c);
-        counters = new JPanelCounters(c);
-        world = new JPanelWorld(c);
+        c           = cParam;
+        buttonBar   = new JPanelButtonBar(c);
+        counters    = new JPanelCounters(c);
+        world       = new JPanelWorld(c);
         
         c.m.registerObserver((Observer) buttonBar);
         c.m.registerObserver((Observer) counters);

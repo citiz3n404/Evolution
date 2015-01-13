@@ -36,11 +36,11 @@ public class SheepReproduce implements BehaviorReproduce{
             ArrayList<Square> list1 = new ArrayList<>();
             ArrayList<Square> list2 = new ArrayList<>();
 
-            int x = animal.getPosX();
-            int y = animal.getPosY();
+            int x                   = animal.getPosX();
+            int y                   = animal.getPosY();
 
-            Square tempSq = new Square(0, 0);
-            boolean hasEmptySq = false;
+            Square tempSq           = new Square(0, 0);
+            boolean hasEmptySq      = false;
 
             //On liste les 9 cases possibles du conjoint.
             for (int i = x - 1; i <= x + 1; i++) {

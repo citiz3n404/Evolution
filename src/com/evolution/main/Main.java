@@ -27,7 +27,7 @@ public class Main {
     
     /**
      * Main function that execute the program
-     * @param args 
+     * @param args Main
      */
     public static void main(String[] args){
         Main program = new Main();

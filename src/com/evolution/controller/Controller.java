@@ -41,7 +41,7 @@ public class Controller implements CONSTANTS, Serializable {
         JFileChooser chooser = new JFileChooser();
         chooser.setPreferredSize (new java.awt.Dimension (JFILECHOOSER_SIZE_L, JFILECHOOSER_SIZE_H));
         chooser.setApproveButtonText("Enregistrer");
-        chooser.setDialogTitle("SAVE");
+        chooser.setDialogTitle("Sauvegarder");
         chooser.setCurrentDirectory(null);
         int returnVal = chooser.showOpenDialog(null);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -93,6 +93,7 @@ public class Controller implements CONSTANTS, Serializable {
         tempTab[6] = tempTab[0] * tempTab[1];
         tempTab[7] = tempTab[2] + tempTab[3];
         tempTab[8] = tempTab[4] + tempTab[5];
+        tempTab[9] = SPEED_OPTIMAL;
         m.notifyObserver();
     }
 
@@ -176,9 +177,6 @@ public class Controller implements CONSTANTS, Serializable {
         m.initAnimals(); // Crée les animaux
         m.initElements(); // herbe et mineraux
         m.notifyObserver(); // Actualise
-
-        m.playSimulation();
-
     }
 
 }
