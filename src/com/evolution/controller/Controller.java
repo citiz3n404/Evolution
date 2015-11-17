@@ -23,7 +23,6 @@ public class Controller implements CONSTANTS, Serializable {
     public Controller(Model mParam) {
         m = mParam;
         tempTab = new int[10];
-
     }
 
     /**
@@ -50,8 +49,6 @@ public class Controller implements CONSTANTS, Serializable {
             System.out.println(txt);
             m.saveModel(txt);
         }
-
-        
     }
 
     /**

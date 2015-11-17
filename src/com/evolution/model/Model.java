@@ -48,6 +48,7 @@ public class Model implements Observable, CONSTANTS {
 
     private ArrayList<Animal>       animal              = new ArrayList<>();
     private ArrayList<Square>       square              = new ArrayList<>();
+    
     private ArrayList<AnimalBis>    animalCopy          = new ArrayList<>();
 
     private ArrayList<Observer>     observer            = new ArrayList<>();
